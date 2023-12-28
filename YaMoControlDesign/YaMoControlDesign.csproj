@@ -86,8 +86,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controls\Button\" />
+    <Folder Include="Controls\Text\" />
     <Folder Include="Resources\Colors\" />
-    <Folder Include="Styles\" />
+    <Folder Include="Themes\Styles\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
