@@ -9,10 +9,11 @@
     Height="350"
     prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <ym:YMButton
+        <!--<ym:YMButton
             Width="100"
             Height="50"
             Content="123"
-            CornerRadius="10" />
+            CornerRadius="10" />-->
+
     </Grid>
 </Window>
