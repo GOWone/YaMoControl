@@ -24,6 +24,8 @@
     <!--  CheckBox  -->
     <!--  Slider  -->
     <!--  Button  -->
+    <!--  RadioButton  -->
+    <!--  ToggleButton  -->
     <!--  TextBlock  -->
     <!--  TextBox  -->
     <!--  PasswordBox  -->
@@ -41,6 +43,7 @@
     <!--  ProgressBar  -->
     <!--  SideMenu  -->
     <!--  ScrollViewer  -->
+
 
 
 </ResourceDictionary>
