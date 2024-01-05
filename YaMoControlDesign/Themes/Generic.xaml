@@ -11,25 +11,27 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--  基础配置  -->
-    <!--  Color  -->
-    <!--  Brushes  -->
-    <!--  Effects  -->
-    <!--  Fonts  -->
-    <!--  Geometries  -->
-    <!--  Path  -->
-    <!--  Size  -->
+    <!--  Color  YES  -->
+    <!--  Brushes  YES  -->
+    <!--  Effects  YES  -->
+    <!--  Fonts  YES  -->
+    <!--  Geometries  YES  -->
+    <!--  Path  YES  -->
+    <!--  Size  YES  -->
 
     <!--  控件样式  -->
-    <!--  Border  -->
-    <!--  CheckBox  -->
-    <!--  Slider  -->
-    <!--  Button  -->
-    <!--  RadioButton  -->
-    <!--  ToggleButton  -->
-    <!--  TextBlock  -->
-    <!--  TextBox  -->
-    <!--  PasswordBox  -->
-    <!--  Label  -->
+    <!--  Border  YES  -->
+    <!--  TextBlock  YES  -->
+    <!--  CheckBox  YES  -->
+
+    <!--  Slider NG  -->
+    <!--  Button  YES  -->
+    <!--  RadioButton  YES  -->
+    <!--  ToggleButton  YES  -->
+
+    <!--  TextBox NG  -->
+    <!--  PasswordBox NG  -->
+    <!--  Label YES  -->
     <!--  ComboBox  -->
     <!--  ListBox  -->
     <!--  ListView  -->
