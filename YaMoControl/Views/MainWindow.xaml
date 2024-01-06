@@ -14,6 +14,24 @@
             Height="50"
             Content="123"
             CornerRadius="10" />-->
+        <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+            <Border
+                Width="100"
+                Height="100"
+                Margin="5"
+                Background="AliceBlue"
+                Style="{StaticResource BorderRegion}">
+                <TextBlock Style="{StaticResource TextBlockDefaultBold}" Text="Border" />
+            </Border>
+            <CheckBox
+                Margin="5"
+                Content="CheckBox"
+                Style="{StaticResource CheckBoxBaseStyle}" />
 
+            <Label
+                Margin="5"
+                Content="Lable"
+                Style="{StaticResource LabelInfo}" />
+        </StackPanel>
     </Grid>
 </Window>

@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -104,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Base\SliderBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Base\TextBlockBaseStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -132,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Slider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\TextBlock.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -142,7 +151,17 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Element\StatusSwitchElement.cs" />
+    <Compile Include="Controls\Element\ToggleButtonAttach.cs" />
+    <Compile Include="Controls\Element\VisualElement.cs" />
+    <Compile Include="Controls\Panel\AxleCanvas.cs" />
+    <Compile Include="Controls\Element\BorderElement.cs" />
+    <Compile Include="Controls\Element\IconElement.cs" />
+    <Compile Include="Controls\Element\TipElement.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />
+    <Compile Include="Data\Enum\PlacementType.cs" />
+    <Compile Include="Data\ValueBoxes.cs" />
+    <Compile Include="Interactivity\AdornerContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -156,6 +175,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Tools\Converter\BorderCircularConverter.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -166,9 +186,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\Element\" />
+    <Folder Include="Controls\Block\" />
+    <Folder Include="Controls\Others\" />
+    <Folder Include="Controls\Slider\" />
     <Folder Include="Controls\Text\" />
+    <Folder Include="Data\Args\" />
+    <Folder Include="Expression\Drawing\" />
+    <Folder Include="Interactivity\Commands\" />
     <Folder Include="Resources\Colors\" />
+    <Folder Include="Tools\Extension\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
