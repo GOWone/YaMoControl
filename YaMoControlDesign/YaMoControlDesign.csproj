@@ -109,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Base\DrawerBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Base\LabelBaseStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -149,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Drawer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Label.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -177,6 +185,8 @@
   <ItemGroup>
     <Compile Include="Controls\Attach\ToggleButtonAttach.cs" />
     <Compile Include="Controls\Block\ToggleBlock.cs" />
+    <Compile Include="Controls\Drawer\Drawer.cs" />
+    <Compile Include="Controls\Drawer\DrawerContainer.cs" />
     <Compile Include="Controls\Element\DropDownElement.cs" />
     <Compile Include="Controls\Element\IconSwitchElement.cs" />
     <Compile Include="Controls\Element\InfoElement.cs" />
@@ -189,6 +199,7 @@
     <Compile Include="Controls\Element\IconElement.cs" />
     <Compile Include="Controls\Element\TipElement.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />
+    <Compile Include="Data\Enum\DrawerShowMode.cs" />
     <Compile Include="Data\Enum\PlacementType.cs" />
     <Compile Include="Data\Enum\TitlePlacementType.cs" />
     <Compile Include="Data\ValueBoxes.cs" />
@@ -212,6 +223,25 @@
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\ThicknessSplitConverter.cs" />
+    <Compile Include="Tools\Extension\StringExtension.cs" />
+    <Compile Include="Tools\Extension\ValueExtension.cs" />
+    <Compile Include="Tools\Helper\AnimationHelper.cs" />
+    <Compile Include="Tools\Helper\DesignerHelper.cs" />
+    <Compile Include="Tools\Helper\DpiHelper.cs" />
+    <Compile Include="Tools\Helper\FullScreenHelper.cs" />
+    <Compile Include="Tools\Helper\MathHelper.cs" />
+    <Compile Include="Tools\Helper\TouchDragMoveWindowHelper.cs" />
+    <Compile Include="Tools\Helper\VisualHelper.cs" />
+    <Compile Include="Tools\Helper\WindowHelper.cs" />
+    <Compile Include="Tools\Interop\Handle\BitmapHandle.cs" />
+    <Compile Include="Tools\Interop\Handle\CommonHandles.cs" />
+    <Compile Include="Tools\Interop\Handle\HandleCollector.cs" />
+    <Compile Include="Tools\Interop\Handle\IconHandle.cs" />
+    <Compile Include="Tools\Interop\Handle\SafeFileMappingHandle.cs" />
+    <Compile Include="Tools\Interop\Handle\WpfSafeHandle.cs" />
+    <Compile Include="Tools\Interop\InteropMethods.cs" />
+    <Compile Include="Tools\Interop\InteropValues.cs" />
+    <Compile Include="Tools\RegexPatterns.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -225,9 +255,7 @@
     <Folder Include="Controls\Slider\" />
     <Folder Include="Controls\Text\" />
     <Folder Include="Data\Args\" />
-    <Folder Include="Expression\Drawing\" />
     <Folder Include="Resources\Colors\" />
-    <Folder Include="Tools\Extension\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

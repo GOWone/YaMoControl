@@ -64,6 +64,44 @@
 
     <!--  endregion  -->
 
+    <!--  region ButtonIcon  -->
+
+    <Style
+        x:Key="ButtonIcon"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="ym:BorderElement.CornerRadius" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding ym:BorderElement.CornerRadius}">
+                        <ContentControl
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <Path
+                                Width="{TemplateBinding ym:IconElement.Width}"
+                                Height="{TemplateBinding ym:IconElement.Height}"
+                                Data="{TemplateBinding ym:IconElement.Geometry}"
+                                Fill="{TemplateBinding Foreground}"
+                                SnapsToDevicePixels="True"
+                                Stretch="Uniform" />
+                        </ContentControl>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--  endregion  -->
+
     <!--  region ButtonDashed  -->
 
     <!--  endregion  -->

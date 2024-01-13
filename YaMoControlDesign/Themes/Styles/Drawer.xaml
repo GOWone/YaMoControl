@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:ym="clr-namespace:YaMoControlDesign.Controls">
+
+    <Style BasedOn="{StaticResource DrawerBaseStyle}" TargetType="ym:Drawer" />
+
+</ResourceDictionary>

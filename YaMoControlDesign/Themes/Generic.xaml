@@ -1073,10 +1073,9 @@
 
     <!--  endregion  -->
 
-
     <!--  region Button  -->
     <!--  Button  YES  -->
-    <!--  BaseBase  -->
+    <!--  region BaseBase  -->
     <Style
         x:Key="ButtonBaseBaseStyle"
         BasedOn="{StaticResource BaseStyle}"
@@ -1091,7 +1090,9 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
-    <!--  Base  -->
+    <!--  endregion  -->
+
+    <!--  region Base  -->
     <Style
         x:Key="ButtonBaseStyle"
         BasedOn="{StaticResource ButtonBaseBaseStyle}"
@@ -1154,8 +1155,9 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    <!--  region Button  -->
+    <!--  endregion  -->
 
+    <!--  region Button  -->
     <Style
         x:Key="ButtonDefault"
         BasedOn="{StaticResource ButtonBaseStyle}"
@@ -1213,6 +1215,43 @@
         <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
     </Style>
 
+    <!--  endregion  -->
+
+    <!--  region ButtonIcon  -->
+    <Style
+        x:Key="ButtonIcon"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="ym:BorderElement.CornerRadius" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding ym:BorderElement.CornerRadius}">
+                        <ContentControl
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <Path
+                                Width="{TemplateBinding ym:IconElement.Width}"
+                                Height="{TemplateBinding ym:IconElement.Height}"
+                                Data="{TemplateBinding ym:IconElement.Geometry}"
+                                Fill="{TemplateBinding Foreground}"
+                                SnapsToDevicePixels="True"
+                                Stretch="Uniform" />
+                        </ContentControl>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--  endregion  -->
 
     <!--  endregion  -->
@@ -3131,6 +3170,16 @@
         <Setter Property="Padding" Value="6,0" />
         <Setter Property="MinHeight" Value="20" />
     </Style>
+    <!--  endregion  -->
+
+    <!--  region Drawer  -->
+    <!--  Drawer  -->
+    <!--  Base  -->
+    <Style x:Key="DrawerBaseStyle" TargetType="ym:Drawer">
+        <Setter Property="Dock" Value="Right" />
+        <Setter Property="MaskBrush" Value="{DynamicResource DarkOpacityBrush}" />
+    </Style>
+    <Style BasedOn="{StaticResource DrawerBaseStyle}" TargetType="ym:Drawer" />
     <!--  endregion  -->
 
     <!--  Slider YES  -->

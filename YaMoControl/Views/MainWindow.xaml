@@ -71,6 +71,42 @@
                 <ComboBoxItem Content="123" />
                 <ComboBoxItem Content="123" />
             </ComboBox>
+
+            <StackPanel Orientation="Horizontal">
+                <ToggleButton
+                    Content="Left-Window"
+                    IsChecked="{Binding IsOpen, ElementName=DrawerLeft}"
+                    Style="{StaticResource ToggleButtonSwitch}" />
+                <ym:Drawer
+                    Name="DrawerLeft"
+                    Height="20"
+                    Dock="Left"
+                    ShowMode="Push">
+                    <Border
+                        Width="300"
+                        Background="{DynamicResource RegionBrush}"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="0,1,0,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Left"
+                                Style="{StaticResource TextBlockTitle}"
+                                Text="Header" />
+                            <Button
+                                Grid.Row="0"
+                                HorizontalAlignment="Right"
+                                ym:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                                Foreground="{DynamicResource PrimaryTextBrush}"
+                                Style="{StaticResource ButtonIcon}" />
+                        </Grid>
+                    </Border>
+                </ym:Drawer>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
