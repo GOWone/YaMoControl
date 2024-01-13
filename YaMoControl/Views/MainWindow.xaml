@@ -14,7 +14,7 @@
             Height="50"
             Content="123"
             CornerRadius="10" />-->
-        <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+        <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
             <Border
                 Width="100"
                 Height="100"
@@ -74,6 +74,7 @@
 
             <StackPanel Orientation="Horizontal">
                 <ToggleButton
+                    HorizontalAlignment="Left"
                     Content="Left-Window"
                     IsChecked="{Binding IsOpen, ElementName=DrawerLeft}"
                     Style="{StaticResource ToggleButtonSwitch}" />
@@ -83,7 +84,7 @@
                     Dock="Left"
                     ShowMode="Push">
                     <Border
-                        Width="300"
+                        Width="200"
                         Background="{DynamicResource RegionBrush}"
                         BorderBrush="{DynamicResource BorderBrush}"
                         BorderThickness="0,1,0,0">
