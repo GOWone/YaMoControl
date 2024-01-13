@@ -125,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Base\TextBoxBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Border.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -157,13 +161,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\ToggleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Element\InfoElement.cs" />
     <Compile Include="Controls\Element\StatusSwitchElement.cs" />
+    <Compile Include="Controls\Element\TitleElement.cs" />
     <Compile Include="Controls\Element\ToggleButtonAttach.cs" />
     <Compile Include="Controls\Element\VisualElement.cs" />
     <Compile Include="Controls\Panel\AxleCanvas.cs" />
@@ -172,8 +182,10 @@
     <Compile Include="Controls\Element\TipElement.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />
     <Compile Include="Data\Enum\PlacementType.cs" />
+    <Compile Include="Data\Enum\TitlePlacementType.cs" />
     <Compile Include="Data\ValueBoxes.cs" />
     <Compile Include="Interactivity\AdornerContainer.cs" />
+    <Compile Include="Interactivity\Commands\ControlCommands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -188,6 +200,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Tools\Converter\BorderCircularConverter.cs" />
+    <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
+    <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
+    <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -198,13 +213,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controls\Attach\" />
     <Folder Include="Controls\Block\" />
     <Folder Include="Controls\Others\" />
     <Folder Include="Controls\Slider\" />
     <Folder Include="Controls\Text\" />
     <Folder Include="Data\Args\" />
     <Folder Include="Expression\Drawing\" />
-    <Folder Include="Interactivity\Commands\" />
     <Folder Include="Resources\Colors\" />
     <Folder Include="Tools\Extension\" />
   </ItemGroup>

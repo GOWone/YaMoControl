@@ -41,6 +41,13 @@
                 Content="Test"
                 Style="{StaticResource RadioButtonIcon.Small}" />
             <RadioButton Content="Test" />
+            <TextBox
+                Width="200"
+                Height="30"
+                ym:InfoElement.Placeholder="123"
+                ym:InfoElement.Title="123"
+                ym:InfoElement.TitlePlacement="Left"
+                Style="{StaticResource TextBoxExtend}" />
         </StackPanel>
     </Grid>
 </Window>
