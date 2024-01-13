@@ -89,6 +89,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\SkinDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\SkinDefault.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\SkinViolet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Base\BaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Growl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Label.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -183,28 +199,61 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Attach\ScrollViewerAttach.cs" />
     <Compile Include="Controls\Attach\ToggleButtonAttach.cs" />
+    <Compile Include="Controls\Attach\WindowAttach.cs" />
     <Compile Include="Controls\Block\ToggleBlock.cs" />
     <Compile Include="Controls\Drawer\Drawer.cs" />
     <Compile Include="Controls\Drawer\DrawerContainer.cs" />
+    <Compile Include="Controls\Element\BackgroundSwitchElement.cs" />
     <Compile Include="Controls\Element\DropDownElement.cs" />
     <Compile Include="Controls\Element\IconSwitchElement.cs" />
     <Compile Include="Controls\Element\InfoElement.cs" />
+    <Compile Include="Controls\Element\PanelElement.cs" />
     <Compile Include="Controls\Element\StatusSwitchElement.cs" />
     <Compile Include="Controls\Element\TitleElement.cs" />
     <Compile Include="Controls\Element\VisualElement.cs" />
+    <Compile Include="Controls\Growl\Growl.cs" />
+    <Compile Include="Controls\Growl\GrowlWindow.cs" />
     <Compile Include="Controls\Others\Empty.cs" />
     <Compile Include="Controls\Panel\AxleCanvas.cs" />
     <Compile Include="Controls\Element\BorderElement.cs" />
     <Compile Include="Controls\Element\IconElement.cs" />
     <Compile Include="Controls\Element\TipElement.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />
+    <Compile Include="Controls\ScrollViewer\ScrollViewer.cs" />
     <Compile Include="Data\Enum\DrawerShowMode.cs" />
+    <Compile Include="Data\Enum\FluidMoveScope.cs" />
+    <Compile Include="Data\Enum\GrowlShowMode.cs" />
+    <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\PlacementType.cs" />
+    <Compile Include="Data\Enum\SkinType.cs" />
+    <Compile Include="Data\Enum\TagType.cs" />
     <Compile Include="Data\Enum\TitlePlacementType.cs" />
+    <Compile Include="Data\GrowlInfo.cs" />
+    <Compile Include="Data\ResourceToken.cs" />
+    <Compile Include="Data\SystemVersionInfo.cs" />
     <Compile Include="Data\ValueBoxes.cs" />
     <Compile Include="Interactivity\AdornerContainer.cs" />
+    <Compile Include="Interactivity\AttachableCollection.cs" />
+    <Compile Include="Interactivity\AttachableCollection1.cs" />
+    <Compile Include="Interactivity\Behavior.cs" />
+    <Compile Include="Interactivity\Behavior1.cs" />
+    <Compile Include="Interactivity\BehaviorCollection.cs" />
     <Compile Include="Interactivity\Commands\ControlCommands.cs" />
+    <Compile Include="Interactivity\DefaultTriggerAttribute.cs" />
+    <Compile Include="Interactivity\ExceptionStringTable.cs" />
+    <Compile Include="Interactivity\ExtendedVisualStateManager.cs" />
+    <Compile Include="Interactivity\FluidMoveBehavior.cs" />
+    <Compile Include="Interactivity\FluidMoveBehaviorBase.cs" />
+    <Compile Include="Interactivity\IAttachedObject.cs" />
+    <Compile Include="Interactivity\Interaction.cs" />
+    <Compile Include="Interactivity\PreviewInvokeEventArgs.cs" />
+    <Compile Include="Interactivity\TransitionEffect.cs" />
+    <Compile Include="Interactivity\TriggerAction.cs" />
+    <Compile Include="Interactivity\TriggerActionCollection.cs" />
+    <Compile Include="Interactivity\TriggerBase.cs" />
+    <Compile Include="Interactivity\TriggerCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -218,18 +267,29 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Property\Langs\Lang.Designer.cs" />
+    <Compile Include="Property\Langs\LangProvider.cs" />
+    <Compile Include="Property\Langs\LangProvider1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LangProvider.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tools\Converter\BorderCircularConverter.cs" />
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\ThicknessSplitConverter.cs" />
     <Compile Include="Tools\Extension\StringExtension.cs" />
+    <Compile Include="Tools\Extension\UIElementExtension.cs" />
     <Compile Include="Tools\Extension\ValueExtension.cs" />
     <Compile Include="Tools\Helper\AnimationHelper.cs" />
+    <Compile Include="Tools\Helper\ColorHelper.cs" />
     <Compile Include="Tools\Helper\DesignerHelper.cs" />
     <Compile Include="Tools\Helper\DpiHelper.cs" />
     <Compile Include="Tools\Helper\FullScreenHelper.cs" />
     <Compile Include="Tools\Helper\MathHelper.cs" />
+    <Compile Include="Tools\Helper\ResourceHelper.cs" />
+    <Compile Include="Tools\Helper\SystemHelper.cs" />
     <Compile Include="Tools\Helper\TouchDragMoveWindowHelper.cs" />
     <Compile Include="Tools\Helper\VisualHelper.cs" />
     <Compile Include="Tools\Helper\WindowHelper.cs" />
@@ -246,6 +306,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Property\Langs\Lang.ca-ES.resx" />
+    <EmbeddedResource Include="Property\Langs\Lang.en.resx" />
+    <EmbeddedResource Include="Property\Langs\Lang.es.resx" />
+    <EmbeddedResource Include="Property\Langs\Lang.fa.resx" />
+    <EmbeddedResource Include="Property\Langs\Lang.fr.resx" />
+    <EmbeddedResource Include="Property\Langs\Lang.ja.resx" />
+    <EmbeddedResource Include="Property\Langs\Lang.ko-KR.resx" />
+    <EmbeddedResource Include="Property\Langs\Lang.pl.resx" />
+    <EmbeddedResource Include="Property\Langs\Lang.pt-BR.resx" />
+    <EmbeddedResource Include="Property\Langs\Lang.resx" />
+    <EmbeddedResource Include="Property\Langs\Lang.ru.resx" />
+    <EmbeddedResource Include="Property\Langs\Lang.tr.resx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -256,6 +328,15 @@
     <Folder Include="Controls\Text\" />
     <Folder Include="Data\Args\" />
     <Folder Include="Resources\Colors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Property\Langs\LangProvider.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LangProvider1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

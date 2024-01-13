@@ -108,6 +108,11 @@
                     </Border>
                 </ym:Drawer>
             </StackPanel>
+            <Button
+                Margin="0,5,5,5"
+                Click="Button_Click"
+                Content="Info"
+                Style="{StaticResource ButtonInfo}" />
         </StackPanel>
     </Grid>
 </Window>

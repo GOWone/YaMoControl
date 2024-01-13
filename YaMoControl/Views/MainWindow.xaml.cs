@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using YaMoControlDesign.Controls;
 
 namespace YaMoControl.Views
 {
@@ -10,6 +11,11 @@ namespace YaMoControl.Views
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Growl.InfoGlobal("This is a Test");
         }
     }
 }
