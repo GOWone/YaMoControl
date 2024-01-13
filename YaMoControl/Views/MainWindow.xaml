@@ -48,6 +48,16 @@
                 ym:InfoElement.Title="123"
                 ym:InfoElement.TitlePlacement="Left"
                 Style="{StaticResource TextBoxExtend}" />
+            <ToggleButton
+                ym:IconSwitchElement.Geometry="{StaticResource LeftGeometry}"
+                ym:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"
+                Style="{StaticResource ToggleButtonIcon}" />
+            <ToggleButton
+                Margin="5,9"
+                HorizontalAlignment="Center"
+                ym:VisualElement.HighlightBrush="{DynamicResource DangerBrush}"
+                IsChecked="True"
+                Style="{StaticResource ToggleButtonSwitch}" />
         </StackPanel>
     </Grid>
 </Window>
