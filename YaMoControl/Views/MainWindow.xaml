@@ -6,7 +6,7 @@
     xmlns:ym="clr-namespace:YaMoControlDesign.Controls;assembly=YaMoControlDesign"
     Title="{Binding Title}"
     Width="525"
-    Height="350"
+    Height="500"
     prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
         <!--<ym:YMButton
@@ -58,6 +58,19 @@
                 ym:VisualElement.HighlightBrush="{DynamicResource DangerBrush}"
                 IsChecked="True"
                 Style="{StaticResource ToggleButtonSwitch}" />
+            <ComboBox
+                Height="50"
+                ym:InfoElement.Necessary="True"
+                ym:InfoElement.Placeholder="123"
+                ym:InfoElement.Symbol="*"
+                ym:InfoElement.Title="123"
+                ym:InfoElement.TitlePlacement="Top"
+                Style="{StaticResource ComboBoxExtend}">
+                <ComboBoxItem Content="123" />
+                <ComboBoxItem Content="123" />
+                <ComboBoxItem Content="123" />
+                <ComboBoxItem Content="123" />
+            </ComboBox>
         </StackPanel>
     </Grid>
 </Window>

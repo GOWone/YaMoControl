@@ -177,11 +177,13 @@
   <ItemGroup>
     <Compile Include="Controls\Attach\ToggleButtonAttach.cs" />
     <Compile Include="Controls\Block\ToggleBlock.cs" />
+    <Compile Include="Controls\Element\DropDownElement.cs" />
     <Compile Include="Controls\Element\IconSwitchElement.cs" />
     <Compile Include="Controls\Element\InfoElement.cs" />
     <Compile Include="Controls\Element\StatusSwitchElement.cs" />
     <Compile Include="Controls\Element\TitleElement.cs" />
     <Compile Include="Controls\Element\VisualElement.cs" />
+    <Compile Include="Controls\Others\Empty.cs" />
     <Compile Include="Controls\Panel\AxleCanvas.cs" />
     <Compile Include="Controls\Element\BorderElement.cs" />
     <Compile Include="Controls\Element\IconElement.cs" />
@@ -209,6 +211,7 @@
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
+    <Compile Include="Tools\Converter\ThicknessSplitConverter.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -219,7 +222,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\Others\" />
     <Folder Include="Controls\Slider\" />
     <Folder Include="Controls\Text\" />
     <Folder Include="Data\Args\" />
