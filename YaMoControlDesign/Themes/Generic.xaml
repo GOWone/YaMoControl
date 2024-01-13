@@ -932,7 +932,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{Binding Path=(ym:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                        CornerRadius="{TemplateBinding ym:BorderElement.CornerRadius}"
                         SnapsToDevicePixels="true">
                         <ContentPresenter
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -1046,8 +1046,150 @@
 
     <!--  Slider YES  -->
 
+    <!--  region Button  -->
     <!--  Button  YES  -->
+    <!--  BaseBase  -->
+    <Style
+        x:Key="ButtonBaseBaseStyle"
+        BasedOn="{StaticResource BaseStyle}"
+        TargetType="ButtonBase">
+        <Setter Property="Height" Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
 
+
+    <!--  Base  -->
+    <Style
+        x:Key="ButtonBaseStyle"
+        BasedOn="{StaticResource ButtonBaseBaseStyle}"
+        TargetType="Button">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="ym:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ym:SimplePanel>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding ym:BorderElement.CornerRadius}" />
+                        <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding ym:BorderElement.CornerRadius}">
+                            <StackPanel
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Orientation="Horizontal">
+                                <Path
+                                    x:Name="PathMain"
+                                    Width="{TemplateBinding ym:IconElement.Width}"
+                                    Height="{TemplateBinding ym:IconElement.Height}"
+                                    Data="{TemplateBinding ym:IconElement.Geometry}"
+                                    Fill="{TemplateBinding Foreground}"
+                                    SnapsToDevicePixels="True"
+                                    Stretch="Uniform" />
+                                <ContentPresenter
+                                    x:Name="ContentPresenterMain"
+                                    Margin="6,0,0,0"
+                                    VerticalAlignment="Center"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </StackPanel>
+                        </Border>
+                    </ym:SimplePanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Content" Value="{x:Null}">
+                            <Setter TargetName="ContentPresenterMain" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="ym:IconElement.Geometry" Value="{x:Null}">
+                            <Setter TargetName="PathMain" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ContentPresenterMain" Property="Margin" Value="0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value=".9" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value=".6" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.4" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--  region Button  -->
+
+    <Style
+        x:Key="ButtonDefault"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style BasedOn="{StaticResource ButtonDefault}" TargetType="Button" />
+
+    <Style
+        x:Key="ButtonPrimary"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+    </Style>
+
+    <Style
+        x:Key="ButtonSuccess"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
+    </Style>
+
+    <Style
+        x:Key="ButtonInfo"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}" />
+    </Style>
+
+    <Style
+        x:Key="ButtonWarning"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
+    </Style>
+
+    <Style
+        x:Key="ButtonDanger"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
+    </Style>
+
+    <!--  endregion  -->
+
+    <!--  endregion  -->
     <!--  RadioButton  YES  -->
     <!--  ToggleButton  YES  -->
 

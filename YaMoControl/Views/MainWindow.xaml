@@ -31,7 +31,11 @@
             <Label
                 Margin="5"
                 Content="Lable"
-                Style="{StaticResource LabelInfo}" />
+                Style="{StaticResource LabelDanger}" />
+            <Button
+                ym:IconElement.Geometry="{StaticResource ClockGeometry}"
+                Content="Button"
+                Style="{StaticResource ButtonInfo}" />
         </StackPanel>
     </Grid>
 </Window>
