@@ -15,7 +15,7 @@ namespace YaMoControl.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Growl.InfoGlobal("This is a Test");
+            Growl.Info("This is a Test");
         }
     }
 }
