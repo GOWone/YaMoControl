@@ -27,7 +27,7 @@
                 Margin="5"
                 Content="CheckBox"
                 Style="{StaticResource CheckBoxBaseStyle}" />
-
+            <TextBlock Style="{StaticResource TextBlockDefaultBold}" Text="123" />
             <Label
                 Margin="5"
                 Content="Lable"
@@ -36,6 +36,11 @@
                 ym:IconElement.Geometry="{StaticResource ClockGeometry}"
                 Content="Button"
                 Style="{StaticResource ButtonInfo}" />
+            <RadioButton
+                ym:IconElement.Geometry="{StaticResource CalendarGeometry}"
+                Content="Test"
+                Style="{StaticResource RadioButtonIcon.Small}" />
+            <RadioButton Content="Test" />
         </StackPanel>
     </Grid>
 </Window>
