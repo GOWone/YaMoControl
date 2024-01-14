@@ -145,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Base\ProgressBarBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Base\RadioButtonBaseStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -209,6 +213,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\ProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\RadioButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -268,6 +276,8 @@
     <Compile Include="Controls\Element\IconElement.cs" />
     <Compile Include="Controls\Element\TipElement.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />
+    <Compile Include="Controls\ProgressBar\CircleProgressBar.cs" />
+    <Compile Include="Controls\ProgressBar\WaveProgressBar.cs" />
     <Compile Include="Controls\ScrollViewer\ScrollViewer.cs" />
     <Compile Include="Controls\SideMenu\SideMenu.cs" />
     <Compile Include="Controls\SideMenu\SideMenuItem.cs" />
@@ -326,11 +336,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LangProvider.tt</DependentUpon>
     </Compile>
+    <Compile Include="Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="Tools\Converter\BorderCircularConverter.cs" />
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\ThicknessSplitConverter.cs" />
+    <Compile Include="Tools\Drawing\BezierCurveFlattener.cs" />
+    <Compile Include="Tools\Drawing\CommonExtensions.cs" />
+    <Compile Include="Tools\Drawing\ExceptionStringTable.cs" />
+    <Compile Include="Tools\Drawing\GeometryHelper.cs" />
+    <Compile Include="Tools\Drawing\MarchLocation.cs" />
+    <Compile Include="Tools\Drawing\MarchStopReason.cs" />
+    <Compile Include="Tools\Drawing\PathFigureHelper.cs" />
+    <Compile Include="Tools\Drawing\PathGeometryHelper.cs" />
+    <Compile Include="Tools\Drawing\PathSegmentData.cs" />
+    <Compile Include="Tools\Drawing\PathSegmentHelper.cs" />
+    <Compile Include="Tools\Drawing\PolylineData.cs" />
+    <Compile Include="Tools\Drawing\PolylineHelper.cs" />
+    <Compile Include="Tools\Drawing\RandomEngine.cs" />
+    <Compile Include="Tools\Drawing\SimpleSegment.cs" />
     <Compile Include="Tools\Extension\StringExtension.cs" />
     <Compile Include="Tools\Extension\UIElementExtension.cs" />
     <Compile Include="Tools\Extension\ValueExtension.cs" />
@@ -353,7 +378,24 @@
     <Compile Include="Tools\Interop\Handle\WpfSafeHandle.cs" />
     <Compile Include="Tools\Interop\InteropMethods.cs" />
     <Compile Include="Tools\Interop\InteropValues.cs" />
+    <Compile Include="Tools\Media\ArcGeometrySource.cs" />
+    <Compile Include="Tools\Media\DrawingPropertyChangedEventArgs.cs" />
+    <Compile Include="Tools\Media\DrawingPropertyMetadata.cs" />
+    <Compile Include="Tools\Media\DrawingPropertyMetadataOptions.cs" />
+    <Compile Include="Tools\Media\GeometryEffect.cs" />
+    <Compile Include="Tools\Media\GeometryEffectConverter.cs" />
+    <Compile Include="Tools\Media\GeometrySource.cs" />
+    <Compile Include="Tools\Media\GeometrySourceExtensions.cs" />
+    <Compile Include="Tools\Media\IArcGeometrySourceParameters.cs" />
+    <Compile Include="Tools\Media\IGeometrySource.cs" />
+    <Compile Include="Tools\Media\IGeometrySourceParameters.cs" />
+    <Compile Include="Tools\Media\InvalidateGeometryReasons.cs" />
+    <Compile Include="Tools\Media\IShape.cs" />
+    <Compile Include="Tools\Media\SketchGeometryEffect.cs" />
+    <Compile Include="Tools\Media\UnitType.cs" />
     <Compile Include="Tools\RegexPatterns.cs" />
+    <Compile Include="Tools\Shape\Arc.cs" />
+    <Compile Include="Tools\Shape\PrimitiveShape.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

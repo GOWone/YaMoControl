@@ -11,63 +11,68 @@
     Height="450"
     mc:Ignorable="d">
     <Grid>
-        <Border>
-            <ym:SideMenu
-                Width="200"
-                Margin="32"
-                BorderThickness="1">
-                <!--<ym:Interaction.Triggers>
+        <StackPanel Orientation="Vertical">
+
+
+            <Border>
+                <ym:SideMenu
+                    Width="200"
+                    Margin="32"
+                    BorderThickness="1">
+                    <!--<ym:Interaction.Triggers>
                     <ym:EventTrigger EventName="SelectionChanged">
                         <ym:EventToCommand Command="{Binding SwitchItemCmd}" PassEventArgsToCommand="True" />
                     </ym:EventTrigger>
                 </ym:Interaction.Triggers>-->
-                <ym:SideMenuItem Header="Overview">
-                    <ym:SideMenuItem.Icon>
-                        <Image Width="24" Height="24" />
-                    </ym:SideMenuItem.Icon>
-                    <ym:SideMenuItem Header="Summary">
-                   
-                    </ym:SideMenuItem>
+                    <ym:SideMenuItem Header="Overview">
+                        <ym:SideMenuItem.Icon>
+                            <Image Width="24" Height="24" />
+                        </ym:SideMenuItem.Icon>
+                        <ym:SideMenuItem Header="Summary" />
 
-                </ym:SideMenuItem>
-                <ym:SideMenuItem Header="Boards">
-                    <ym:SideMenuItem.Icon>
-                        <Image Width="24" Height="24" />
-                    </ym:SideMenuItem.Icon>
-                    <ym:SideMenuItem Header="Work Items">
                     </ym:SideMenuItem>
                     <ym:SideMenuItem Header="Boards">
-                    </ym:SideMenuItem>
+                        <ym:SideMenuItem.Icon>
+                            <Image Width="24" Height="24" />
+                        </ym:SideMenuItem.Icon>
+                        <ym:SideMenuItem Header="Work Items" />
+                        <ym:SideMenuItem Header="Boards" />
 
-                </ym:SideMenuItem>
-                <ym:SideMenuItem Header="Repos">
-                    <ym:SideMenuItem.Icon>
-                        <Image Width="24" Height="24" />
-                    </ym:SideMenuItem.Icon>
-                    <ym:SideMenuItem Header="Files">
                     </ym:SideMenuItem>
-                    <ym:SideMenuItem Header="Commits">
+                    <ym:SideMenuItem Header="Repos">
+                        <ym:SideMenuItem.Icon>
+                            <Image Width="24" Height="24" />
+                        </ym:SideMenuItem.Icon>
+                        <ym:SideMenuItem Header="Files" />
+                        <ym:SideMenuItem Header="Commits" />
                     </ym:SideMenuItem>
-                </ym:SideMenuItem>
-                <ym:SideMenuItem Header="Pipelines">
-                    <ym:SideMenuItem.Icon>
-                        <Image Width="24" Height="24" />
-                    </ym:SideMenuItem.Icon>
-                    <ym:SideMenuItem Header="Builds">
+                    <ym:SideMenuItem Header="Pipelines">
+                        <ym:SideMenuItem.Icon>
+                            <Image Width="24" Height="24" />
+                        </ym:SideMenuItem.Icon>
+                        <ym:SideMenuItem Header="Builds" />
+                        <ym:SideMenuItem Header="Releases" />
                     </ym:SideMenuItem>
-                    <ym:SideMenuItem Header="Releases">
-                    </ym:SideMenuItem>
-                </ym:SideMenuItem>
-                <ym:SideMenuItem Header="Test Plans">
-                    <ym:SideMenuItem.Icon>
-                        <Image Width="24" Height="24" />
-                    </ym:SideMenuItem.Icon>
                     <ym:SideMenuItem Header="Test Plans">
+                        <ym:SideMenuItem.Icon>
+                            <Image Width="24" Height="24" />
+                        </ym:SideMenuItem.Icon>
+                        <ym:SideMenuItem Header="Test Plans" />
+                        <ym:SideMenuItem Header="Runs" />
                     </ym:SideMenuItem>
-                    <ym:SideMenuItem Header="Runs">
-                    </ym:SideMenuItem>
-                </ym:SideMenuItem>
-            </ym:SideMenu>
-        </Border>
+                </ym:SideMenu>
+            </Border>
+
+            <StackPanel Orientation="Horizontal">
+                <ym:CircleProgressBar Value="10" />
+                <ym:CircleProgressBar
+                    ArcThickness="6"
+                    Style="{StaticResource ProgressBarSuccessCircle}"
+                    Value="10" />
+                <ym:CircleProgressBar IsIndeterminate="True" Value="10" />
+                <ym:WaveProgressBar Value="70" />
+
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
