@@ -91,7 +91,7 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition />
+                                <RowDefinition Height="400" />
                             </Grid.RowDefinitions>
                             <TextBlock
                                 Margin="10,0,0,0"
@@ -113,6 +113,27 @@
                 Click="Button_Click"
                 Content="Info"
                 Style="{StaticResource ButtonInfo}" />
+            <ListView
+                x:Name="ListViewTest"
+                ItemsSource="{Binding listItemModels}"
+                Style="{StaticResource ListViewBaseStyle}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn
+                            Width="80"
+                            DisplayMemberBinding="{Binding Index}"
+                            Header="Index" />
+                        <GridViewColumn
+                            Width="80"
+                            DisplayMemberBinding="{Binding Name}"
+                            Header="Name" />
+                        <GridViewColumn
+                            Width="80"
+                            DisplayMemberBinding="{Binding Remark}"
+                            Header="Remark" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </StackPanel>
     </Grid>
 </Window>
