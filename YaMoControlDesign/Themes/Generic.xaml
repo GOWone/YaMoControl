@@ -4276,11 +4276,90 @@
     <Style BasedOn="{StaticResource ListViewBaseStyle}" TargetType="ListView" />
     <!--  endregion  -->
 
+    <!--  region Loading  -->
+    <!--  Loading  YES  -->
+    <!--  Base  -->
+    <Style x:Key="LoadingBaseStyle" TargetType="ym:LoadingBase">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="DotDiameter" Value="10" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+    </Style>
+    <Style
+        x:Key="LoadingCircleBaseStyle"
+        BasedOn="{StaticResource LoadingBaseStyle}"
+        TargetType="ym:LoadingCircle">
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="DotDiameter" Value="5" />
+        <Setter Property="DotInterval" Value="30" />
+        <Setter Property="DotOffSet" Value="60" />
+        <Setter Property="DotDelayTime" Value="90" />
+        <Setter Property="DotSpeed" Value="4" />
+    </Style>
+    <Style
+        x:Key="LoadingLineBaseStyle"
+        BasedOn="{StaticResource LoadingBaseStyle}"
+        TargetType="ym:LoadingLine">
+        <Setter Property="DotDiameter" Value="5" />
+    </Style>
+
+    <!--  直线加载条默认样式  -->
+    <Style BasedOn="{StaticResource LoadingLineBaseStyle}" TargetType="ym:LoadingLine" />
+
+    <Style
+        x:Key="LoadingLineLight"
+        BasedOn="{StaticResource LoadingLineBaseStyle}"
+        TargetType="ym:LoadingLine">
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+    </Style>
+
+    <Style
+        x:Key="LoadingLineLarge"
+        BasedOn="{StaticResource LoadingLineBaseStyle}"
+        TargetType="ym:LoadingLine">
+        <Setter Property="DotDiameter" Value="10" />
+    </Style>
+
+    <Style
+        x:Key="LoadingLineLargeLight"
+        BasedOn="{StaticResource LoadingLineLarge}"
+        TargetType="ym:LoadingLine">
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+    </Style>
+
+    <!--  圆形加载条默认样式  -->
+    <Style BasedOn="{StaticResource LoadingCircleBaseStyle}" TargetType="ym:LoadingCircle" />
+
+    <Style
+        x:Key="LoadingCircleLight"
+        BasedOn="{StaticResource LoadingCircleBaseStyle}"
+        TargetType="ym:LoadingCircle">
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+    </Style>
+
+    <Style
+        x:Key="LoadingCircleLarge"
+        BasedOn="{StaticResource LoadingCircleBaseStyle}"
+        TargetType="ym:LoadingCircle">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="100" />
+        <Setter Property="DotDiameter" Value="10" />
+        <Setter Property="DotInterval" Value="20" />
+        <Setter Property="DotOffSet" Value="40" />
+        <Setter Property="DotDelayTime" Value="120" />
+    </Style>
+
+    <Style
+        x:Key="LoadingCircleLargeLight"
+        BasedOn="{StaticResource LoadingCircleLarge}"
+        TargetType="ym:LoadingCircle">
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+    </Style>
+    <!--  endregion  -->
+
     <!--  Slider YES  -->
     <!--  PasswordBox NG  -->
-
     <!--  ListBox  NG  -->
-    <!--  Loading  NG  -->
     <!--  ImageViewer NG  -->
     <!--  ImageSelector NG  -->
     <!--  PreviewSlider NG  -->

@@ -104,6 +104,23 @@
                                 ym:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
                                 Foreground="{DynamicResource PrimaryTextBrush}"
                                 Style="{StaticResource ButtonIcon}" />
+                            <StackPanel Grid.Row="1" Orientation="Vertical">
+                                <ym:LoadingLine />
+                                <ym:LoadingLine
+                                    Margin="0,30"
+                                    Foreground="BlueViolet"
+                                    Style="{StaticResource LoadingLineLarge}" />
+                                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                    <ym:LoadingCircle />
+                                    <Border
+                                        Margin="32,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Background="{DynamicResource PrimaryBrush}"
+                                        CornerRadius="10">
+                                        <ym:LoadingCircle Margin="10" Style="{StaticResource LoadingCircleLight}" />
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
                         </Grid>
                     </Border>
                 </ym:Drawer>
