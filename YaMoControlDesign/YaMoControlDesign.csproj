@@ -153,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Base\SideMenuBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Base\SliderBaseStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -213,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\SideMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Slider.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -235,6 +243,9 @@
     <Compile Include="Controls\Attach\ScrollViewerAttach.cs" />
     <Compile Include="Controls\Attach\ToggleButtonAttach.cs" />
     <Compile Include="Controls\Attach\WindowAttach.cs" />
+    <Compile Include="Controls\Base\HeaderedSimpleItemsControl.cs" />
+    <Compile Include="Controls\Base\ISelectable.cs" />
+    <Compile Include="Controls\Base\SimpleItemsControl.cs" />
     <Compile Include="Controls\Block\ToggleBlock.cs" />
     <Compile Include="Controls\Drawer\Drawer.cs" />
     <Compile Include="Controls\Drawer\DrawerContainer.cs" />
@@ -258,11 +269,16 @@
     <Compile Include="Controls\Element\TipElement.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />
     <Compile Include="Controls\ScrollViewer\ScrollViewer.cs" />
+    <Compile Include="Controls\SideMenu\SideMenu.cs" />
+    <Compile Include="Controls\SideMenu\SideMenuItem.cs" />
+    <Compile Include="Data\Args\FunctionEventArgs.cs" />
     <Compile Include="Data\Enum\DrawerShowMode.cs" />
+    <Compile Include="Data\Enum\ExpandMode.cs" />
     <Compile Include="Data\Enum\FluidMoveScope.cs" />
     <Compile Include="Data\Enum\GrowlShowMode.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\PlacementType.cs" />
+    <Compile Include="Data\Enum\SideMenuItemRole.cs" />
     <Compile Include="Data\Enum\SkinType.cs" />
     <Compile Include="Data\Enum\TagType.cs" />
     <Compile Include="Data\Enum\TitlePlacementType.cs" />
@@ -362,7 +378,6 @@
   <ItemGroup>
     <Folder Include="Controls\Slider\" />
     <Folder Include="Controls\Text\" />
-    <Folder Include="Data\Args\" />
     <Folder Include="Resources\Colors\" />
   </ItemGroup>
   <ItemGroup>

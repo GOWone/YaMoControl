@@ -37,5 +37,11 @@ namespace YaMoControl.Views
             listItemModels.Add(new ListItemModel() { Index = 7, Name = "Test", Remark = "Test"});
             listItemModels.Add(new ListItemModel() { Index = 8, Name = "Test", Remark = "Test"});
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SideMenuDemo sideMenuDemo = new SideMenuDemo();
+            sideMenuDemo.Show();
+        }
     }
 }

@@ -14,6 +14,7 @@
             Height="50"
             Content="123"
             CornerRadius="10" />-->
+
         <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
             <Border
                 Width="100"
@@ -151,6 +152,8 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+
+            <Button Content="SideMenu" Click="Button_Click_1"/>
         </StackPanel>
     </Grid>
 </Window>

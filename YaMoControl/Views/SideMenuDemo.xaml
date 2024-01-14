@@ -1,0 +1,73 @@
+﻿<Window
+    x:Class="YaMoControl.Views.SideMenuDemo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:YaMoControl.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ym="clr-namespace:YaMoControlDesign.Controls;assembly=YaMoControlDesign"
+    Title="SideMenuDemo"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <Border>
+            <ym:SideMenu
+                Width="200"
+                Margin="32"
+                BorderThickness="1">
+                <!--<ym:Interaction.Triggers>
+                    <ym:EventTrigger EventName="SelectionChanged">
+                        <ym:EventToCommand Command="{Binding SwitchItemCmd}" PassEventArgsToCommand="True" />
+                    </ym:EventTrigger>
+                </ym:Interaction.Triggers>-->
+                <ym:SideMenuItem Header="Overview">
+                    <ym:SideMenuItem.Icon>
+                        <Image Width="24" Height="24" />
+                    </ym:SideMenuItem.Icon>
+                    <ym:SideMenuItem Header="Summary">
+                   
+                    </ym:SideMenuItem>
+
+                </ym:SideMenuItem>
+                <ym:SideMenuItem Header="Boards">
+                    <ym:SideMenuItem.Icon>
+                        <Image Width="24" Height="24" />
+                    </ym:SideMenuItem.Icon>
+                    <ym:SideMenuItem Header="Work Items">
+                    </ym:SideMenuItem>
+                    <ym:SideMenuItem Header="Boards">
+                    </ym:SideMenuItem>
+
+                </ym:SideMenuItem>
+                <ym:SideMenuItem Header="Repos">
+                    <ym:SideMenuItem.Icon>
+                        <Image Width="24" Height="24" />
+                    </ym:SideMenuItem.Icon>
+                    <ym:SideMenuItem Header="Files">
+                    </ym:SideMenuItem>
+                    <ym:SideMenuItem Header="Commits">
+                    </ym:SideMenuItem>
+                </ym:SideMenuItem>
+                <ym:SideMenuItem Header="Pipelines">
+                    <ym:SideMenuItem.Icon>
+                        <Image Width="24" Height="24" />
+                    </ym:SideMenuItem.Icon>
+                    <ym:SideMenuItem Header="Builds">
+                    </ym:SideMenuItem>
+                    <ym:SideMenuItem Header="Releases">
+                    </ym:SideMenuItem>
+                </ym:SideMenuItem>
+                <ym:SideMenuItem Header="Test Plans">
+                    <ym:SideMenuItem.Icon>
+                        <Image Width="24" Height="24" />
+                    </ym:SideMenuItem.Icon>
+                    <ym:SideMenuItem Header="Test Plans">
+                    </ym:SideMenuItem>
+                    <ym:SideMenuItem Header="Runs">
+                    </ym:SideMenuItem>
+                </ym:SideMenuItem>
+            </ym:SideMenu>
+        </Border>
+    </Grid>
+</Window>
