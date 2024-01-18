@@ -12,8 +12,6 @@
     mc:Ignorable="d">
     <Grid>
         <StackPanel Orientation="Vertical">
-
-
             <Border>
                 <ym:SideMenu
                     Width="200"
@@ -73,6 +71,33 @@
                 <ym:WaveProgressBar Value="70" />
 
             </StackPanel>
+
+            <ym:RangeSlider
+                Width="400"
+                IsSnapToTickEnabled="True"
+                ValueEnd="8"
+                ValueStart="2" />
+            <ym:RangeSlider
+                Width="400"
+                IsEnabled="False"
+                IsSnapToTickEnabled="True"
+                ValueEnd="3" />
+            <ym:RangeSlider
+                Width="400"
+                ym:TipElement.Placement="Top"
+                ym:TipElement.Visibility="Visible"
+                IsSnapToTickEnabled="True"
+                Maximum="100"
+                TickFrequency="10"
+                TickPlacement="BottomRight"
+                ValueEnd="60" />
+            <ym:RangeSlider
+                Width="400"
+                ym:TipElement.Placement="Bottom"
+                ym:TipElement.StringFormat="#0.00"
+                ym:TipElement.Visibility="Visible"
+                TickPlacement="Both"
+                ValueEnd="5" />
         </StackPanel>
     </Grid>
 </Window>

@@ -248,7 +248,7 @@ namespace YaMoControlDesign.Controls
 
         protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            if (IsMoveToPointEnabled && _track.ThumbStart is { IsMouseOver: false } && _track.ThumbEnd is { IsMouseOver: false })
+            if (IsMoveToPointEnabled && _track.ThumbStart.IsMouseOver==false  && _track.ThumbEnd.IsMouseOver == false)
             {
                 // Here we need to determine whether it's closer to the starting point or the end point. 
                 var pt = e.MouseDevice.GetPosition(_track);
@@ -296,7 +296,7 @@ namespace YaMoControlDesign.Controls
             {
                 // If ticks collection is available, use it.
                 // Note that ticks may be unsorted.
-                if (Ticks is { Count: > 0 })
+                if (Ticks.Count > 0 )
                 {
                     foreach (var tick in Ticks)
                     {
@@ -336,7 +336,7 @@ namespace YaMoControlDesign.Controls
             var previous = Minimum;
             var next = Maximum;
 
-            if (Ticks is { Count: > 0 })
+            if (Ticks.Count > 0)
             {
                 foreach (var tick in Ticks)
                 {
@@ -424,7 +424,7 @@ namespace YaMoControlDesign.Controls
         {
             // Show AutoToolTip if needed.
 
-            if (e.OriginalSource is not RangeThumb thumb) return;
+            if (!(e.OriginalSource is RangeThumb thumb)) return;
             _thumbCurrent = thumb;
             _originThumbPoint = Mouse.GetPosition(_thumbCurrent);
             _thumbCurrent.StartDrag();
@@ -447,12 +447,16 @@ namespace YaMoControlDesign.Controls
 
         private void OnThumbDragStarted(ToolTip toolTip, bool isStart)
         {
-            toolTip ??= new ToolTip
+            if (toolTip == null)
             {
-                Placement = PlacementMode.Custom,
-                PlacementTarget = isStart ? _track.ThumbStart : _track.ThumbEnd,
-                CustomPopupPlacementCallback = AutoToolTipCustomPlacementCallback
-            };
+                toolTip = new ToolTip
+                {
+                    Placement = PlacementMode.Custom,
+                    PlacementTarget = isStart ? _track.ThumbStart : _track.ThumbEnd,
+                    CustomPopupPlacementCallback = AutoToolTipCustomPlacementCallback
+                };
+            }
+   
 
             if (isStart)
             {
@@ -526,7 +530,7 @@ namespace YaMoControlDesign.Controls
 
         protected virtual void OnThumbDragDelta(DragDeltaEventArgs e)
         {
-            if (e.OriginalSource is not Thumb thumb) return;
+            if (!(e.OriginalSource is Thumb thumb)) return;
             var isStart = thumb.Equals(_track.ThumbStart);
             if (!isStart)
             {
@@ -574,7 +578,7 @@ namespace YaMoControlDesign.Controls
         {
             // Show AutoToolTip if needed.
 
-            if (e.OriginalSource is not Thumb thumb || AutoToolTipPlacement == AutoToolTipPlacement.None)
+            if (!(e.OriginalSource is Thumb thumb) || AutoToolTipPlacement == AutoToolTipPlacement.None)
             {
                 return;
             }

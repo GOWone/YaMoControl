@@ -3,43 +3,45 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
-namespace HandyControl.Controls;
-
-public class RangeThumb : Thumb
+namespace YaMoControlDesign.Controls
 {
-    public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
-        nameof(Content), typeof(object), typeof(RangeThumb), new PropertyMetadata(default(object)));
 
-    public object Content
+    public class RangeThumb : Thumb
     {
-        get => GetValue(ContentProperty);
-        set => SetValue(ContentProperty, value);
-    }
+        public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
+            nameof(Content), typeof(object), typeof(RangeThumb), new PropertyMetadata(default(object)));
 
-    protected override void OnMouseMove(MouseEventArgs e)
-    {
-
-    }
-
-    public void StartDrag()
-    {
-        IsDragging = true;
-        Focus();
-        CaptureMouse();
-        RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left)
+        public object Content
         {
-            RoutedEvent = PreviewMouseLeftButtonDownEvent,
-            Source = this
-        });
-    }
+            get => GetValue(ContentProperty);
+            set => SetValue(ContentProperty, value);
+        }
 
-    public new void CancelDrag()
-    {
-        base.CancelDrag();
-
-        RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left)
+        protected override void OnMouseMove(MouseEventArgs e)
         {
-            RoutedEvent = PreviewMouseLeftButtonUpEvent
-        });
+
+        }
+
+        public void StartDrag()
+        {
+            IsDragging = true;
+            Focus();
+            CaptureMouse();
+            RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left)
+            {
+                RoutedEvent = PreviewMouseLeftButtonDownEvent,
+                Source = this
+            });
+        }
+
+        public new void CancelDrag()
+        {
+            base.CancelDrag();
+
+            RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left)
+            {
+                RoutedEvent = PreviewMouseLeftButtonUpEvent
+            });
+        }
     }
 }

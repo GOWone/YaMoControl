@@ -291,6 +291,12 @@
     <Compile Include="Controls\ScrollViewer\ScrollViewer.cs" />
     <Compile Include="Controls\SideMenu\SideMenu.cs" />
     <Compile Include="Controls\SideMenu\SideMenuItem.cs" />
+    <Compile Include="Controls\Slider\CompareSlider\CompareSlider.cs" />
+    <Compile Include="Controls\Slider\CompareSlider\CompareTrack.cs" />
+    <Compile Include="Controls\Slider\RangeSlider\RangeSlider.cs" />
+    <Compile Include="Controls\Slider\RangeSlider\RangeThumb.cs" />
+    <Compile Include="Controls\Slider\RangeSlider\RangeTrack.cs" />
+    <Compile Include="Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
     <Compile Include="Data\Args\FunctionEventArgs.cs" />
     <Compile Include="Data\Enum\DrawerShowMode.cs" />
     <Compile Include="Data\Enum\ExpandMode.cs" />
@@ -304,6 +310,8 @@
     <Compile Include="Data\Enum\TagType.cs" />
     <Compile Include="Data\Enum\TitlePlacementType.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
+    <Compile Include="Data\Range\DoubleRange.cs" />
+    <Compile Include="Data\Range\IValueRange.cs" />
     <Compile Include="Data\ResourceToken.cs" />
     <Compile Include="Data\SystemVersionInfo.cs" />
     <Compile Include="Data\ValueBoxes.cs" />
@@ -430,8 +438,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\Slider\" />
-    <Folder Include="Controls\Text\" />
     <Folder Include="Resources\Colors\" />
   </ItemGroup>
   <ItemGroup>
