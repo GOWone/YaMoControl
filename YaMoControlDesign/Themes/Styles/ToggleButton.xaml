@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:hc="clr-namespace:YaMoControlDesign.Controls">
+    xmlns:ym="clr-namespace:YaMoControlDesign.Controls">
 
     <!--  图标  -->
     <Style

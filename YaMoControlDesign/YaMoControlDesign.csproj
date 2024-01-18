@@ -145,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Base\PoptipBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Base\ProgressBarBaseStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -213,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Poptip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\ProgressBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -251,6 +259,7 @@
     <Compile Include="Controls\Attach\ScrollViewerAttach.cs" />
     <Compile Include="Controls\Attach\ToggleButtonAttach.cs" />
     <Compile Include="Controls\Attach\WindowAttach.cs" />
+    <Compile Include="Controls\Base\AdornerElement.cs" />
     <Compile Include="Controls\Base\HeaderedSimpleItemsControl.cs" />
     <Compile Include="Controls\Base\ISelectable.cs" />
     <Compile Include="Controls\Base\SimpleItemsControl.cs" />
@@ -271,6 +280,7 @@
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
     <Compile Include="Controls\Others\Empty.cs" />
+    <Compile Include="Controls\Others\Poptip.cs" />
     <Compile Include="Controls\Panel\AxleCanvas.cs" />
     <Compile Include="Controls\Element\BorderElement.cs" />
     <Compile Include="Controls\Element\IconElement.cs" />
@@ -286,6 +296,7 @@
     <Compile Include="Data\Enum\ExpandMode.cs" />
     <Compile Include="Data\Enum\FluidMoveScope.cs" />
     <Compile Include="Data\Enum\GrowlShowMode.cs" />
+    <Compile Include="Data\Enum\HitMode.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\PlacementType.cs" />
     <Compile Include="Data\Enum\SideMenuItemRole.cs" />
@@ -396,6 +407,7 @@
     <Compile Include="Tools\RegexPatterns.cs" />
     <Compile Include="Tools\Shape\Arc.cs" />
     <Compile Include="Tools\Shape\PrimitiveShape.cs" />
+    <Compile Include="Tools\ValidateHelper.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

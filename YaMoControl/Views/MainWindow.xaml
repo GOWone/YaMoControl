@@ -3,18 +3,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
     xmlns:ym="clr-namespace:YaMoControlDesign.Controls;assembly=YaMoControlDesign"
     Title="{Binding Title}"
     Width="525"
     Height="500"
     prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <!--<ym:YMButton
-            Width="100"
-            Height="50"
-            Content="123"
-            CornerRadius="10" />-->
-
         <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
             <Border
                 Width="100"
@@ -34,9 +29,13 @@
                 Content="Lable"
                 Style="{StaticResource LabelDanger}" />
             <Button
+                Margin="0,50,0,0"
                 ym:IconElement.Geometry="{StaticResource ClockGeometry}"
+                ym:Poptip.Content="Text"
+                ym:Poptip.Placement="BottomLeft"
                 Content="Button"
-                Style="{StaticResource ButtonInfo}" />
+                Style="{StaticResource ButtonDefault}"
+                Tag="LeftTop" />
             <RadioButton
                 ym:IconElement.Geometry="{StaticResource CalendarGeometry}"
                 Content="Test"
@@ -153,7 +152,7 @@
                 </ListView.View>
             </ListView>
 
-            <Button Content="SideMenu" Click="Button_Click_1"/>
+            <Button Click="Button_Click_1" Content="SideMenu" />
         </StackPanel>
     </Grid>
 </Window>

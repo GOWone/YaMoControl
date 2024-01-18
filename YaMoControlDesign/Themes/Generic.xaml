@@ -5401,14 +5401,46 @@
     </Style>
     <!--  endregion  -->
 
+    <!--  region PopTip  -->
+    <!--  PopTip NG  -->
+    <!--  Base  -->
+    <Style x:Key="PoptipBaseStyle" TargetType="ym:Poptip">
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="ym:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ym:Poptip">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{Binding Path=(ym:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                        <ContentPresenter
+                            Margin="{TemplateBinding Padding}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style BasedOn="{StaticResource PoptipBaseStyle}" TargetType="ym:Poptip" />
+
+    <!--  endregion  -->
+
     <!--  Slider YES  -->
-    <!--  PasswordBox NG  -->
     <!--  ListBox  NG  -->
+
+    <!--  PasswordBox NG  -->
     <!--  ImageViewer NG  -->
     <!--  ImageSelector NG  -->
-    <!--  PreviewSlider NG  -->
-    <!--  RangeSlider NG  -->
-    <!--  PopTip NG  -->
     <!--  Carousel NG  -->
 
 </ResourceDictionary>
