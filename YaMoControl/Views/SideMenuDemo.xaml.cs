@@ -26,7 +26,6 @@ namespace YaMoControl.Views
         {
             InitializeComponent();
             init();
-            listTemp.ItemsSource = nameList;
         }
 
         public void init()
