@@ -4,21 +4,21 @@
     xmlns:ym="clr-namespace:YaMoControlDesign.Controls">
 
     <Style
-        x:Key="ButtonBaseStyle"
+        x:Key="RepeatButtonBaseStyle"
         BasedOn="{StaticResource ButtonBaseBaseStyle}"
-        TargetType="Button">
+        TargetType="RepeatButton">
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
         <Setter Property="ym:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="RepeatButton">
                     <ym:SimplePanel>
-                        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding ym:BorderElement.CornerRadius}" />
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(ym:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
                         <Border
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding ym:BorderElement.CornerRadius}">
+                            CornerRadius="{Binding Path=(ym:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
                             <StackPanel
                                 Margin="{TemplateBinding Padding}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -67,13 +67,14 @@
     </Style>
 
     <Style
-        x:Key="ButtonDashedBaseStyle"
-        BasedOn="{StaticResource ButtonBaseStyle}"
-        TargetType="Button">
+        x:Key="RepeatButtonDashedBaseStyle"
+        BasedOn="{StaticResource RepeatButtonBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="RepeatButton">
                     <ym:DashedBorder
                         Background="Transparent"
                         BorderBrush="{TemplateBinding BorderBrush}"
@@ -114,4 +115,5 @@
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>

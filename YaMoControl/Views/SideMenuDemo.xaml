@@ -98,6 +98,7 @@
                 ym:TipElement.Visibility="Visible"
                 TickPlacement="Both"
                 ValueEnd="5" />
+
         </StackPanel>
     </Grid>
 </Window>

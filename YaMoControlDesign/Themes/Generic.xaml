@@ -1162,6 +1162,54 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style
+        x:Key="ButtonDashedBaseStyle"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ym:DashedBorder
+                        Background="Transparent"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderDashArray="3,2"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{Binding Path=(ym:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                        <StackPanel
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Orientation="Horizontal">
+                            <Path
+                                x:Name="PathMain"
+                                Width="{TemplateBinding ym:IconElement.Width}"
+                                Height="{TemplateBinding ym:IconElement.Height}"
+                                Data="{TemplateBinding ym:IconElement.Geometry}"
+                                Fill="{TemplateBinding Foreground}"
+                                SnapsToDevicePixels="True"
+                                Stretch="Uniform" />
+                            <ContentPresenter
+                                x:Name="ContentPresenterMain"
+                                Margin="6,0,0,0"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </StackPanel>
+                    </ym:DashedBorder>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Content" Value="{x:Null}">
+                            <Setter TargetName="ContentPresenterMain" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="ym:IconElement.Geometry" Value="{x:Null}">
+                            <Setter TargetName="PathMain" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ContentPresenterMain" Property="Margin" Value="0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--  endregion  -->
 
     <!--  region Button  -->
@@ -1304,6 +1352,500 @@
     </Style>
     <!--  endregion  -->
 
+    <!--  endregion  -->
+
+    <!--  region RepeatButton  -->
+    <!--  RepeatButton  -->
+    <!--  Base  -->
+
+    <Style
+        x:Key="RepeatButtonBaseStyle"
+        BasedOn="{StaticResource ButtonBaseBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="ym:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <ym:SimplePanel>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(ym:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                        <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(ym:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                            <StackPanel
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Orientation="Horizontal">
+                                <Path
+                                    x:Name="PathMain"
+                                    Width="{TemplateBinding ym:IconElement.Width}"
+                                    Height="{TemplateBinding ym:IconElement.Height}"
+                                    Data="{TemplateBinding ym:IconElement.Geometry}"
+                                    Fill="{TemplateBinding Foreground}"
+                                    SnapsToDevicePixels="True"
+                                    Stretch="Uniform" />
+                                <ContentPresenter
+                                    x:Name="ContentPresenterMain"
+                                    Margin="6,0,0,0"
+                                    VerticalAlignment="Center"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </StackPanel>
+                        </Border>
+                    </ym:SimplePanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Content" Value="{x:Null}">
+                            <Setter TargetName="ContentPresenterMain" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="ym:IconElement.Geometry" Value="{x:Null}">
+                            <Setter TargetName="PathMain" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ContentPresenterMain" Property="Margin" Value="0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value=".9" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value=".6" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.4" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashedBaseStyle"
+        BasedOn="{StaticResource RepeatButtonBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <ym:DashedBorder
+                        Background="Transparent"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderDashArray="3,2"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{Binding Path=(ym:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                        <StackPanel
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Orientation="Horizontal">
+                            <Path
+                                x:Name="PathMain"
+                                Width="{TemplateBinding ym:IconElement.Width}"
+                                Height="{TemplateBinding ym:IconElement.Height}"
+                                Data="{TemplateBinding ym:IconElement.Geometry}"
+                                Fill="{TemplateBinding Foreground}"
+                                SnapsToDevicePixels="True"
+                                Stretch="Uniform" />
+                            <ContentPresenter
+                                x:Name="ContentPresenterMain"
+                                Margin="6,0,0,0"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </StackPanel>
+                    </ym:DashedBorder>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Content" Value="{x:Null}">
+                            <Setter TargetName="ContentPresenterMain" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="ym:IconElement.Geometry" Value="{x:Null}">
+                            <Setter TargetName="PathMain" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ContentPresenterMain" Property="Margin" Value="0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  region RepeatButton  -->
+
+    <Style
+        x:Key="RepeatButtonDefault"
+        BasedOn="{StaticResource RepeatButtonBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDefault.Small"
+        BasedOn="{StaticResource RepeatButtonDefault}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <Style BasedOn="{StaticResource RepeatButtonDefault}" TargetType="RepeatButton" />
+
+    <Style
+        x:Key="RepeatButtonPrimary"
+        BasedOn="{StaticResource RepeatButtonBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonPrimary.Small"
+        BasedOn="{StaticResource RepeatButtonPrimary}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonSuccess"
+        BasedOn="{StaticResource RepeatButtonBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonSuccess.Small"
+        BasedOn="{StaticResource RepeatButtonSuccess}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonInfo"
+        BasedOn="{StaticResource RepeatButtonBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Background" Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonInfo.Small"
+        BasedOn="{StaticResource RepeatButtonInfo}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonWarning"
+        BasedOn="{StaticResource RepeatButtonBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonWarning.Small"
+        BasedOn="{StaticResource RepeatButtonWarning}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDanger"
+        BasedOn="{StaticResource RepeatButtonBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDanger.Small"
+        BasedOn="{StaticResource RepeatButtonDanger}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <!--  endregion  -->
+
+    <!--  region RepeatButtonIcon  -->
+
+    <Style
+        x:Key="RepeatButtonIcon"
+        BasedOn="{StaticResource RepeatButtonBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="ym:BorderElement.CornerRadius" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{Binding Path=(ym:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                        <ContentControl
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <Path
+                                Width="{TemplateBinding ym:IconElement.Width}"
+                                Height="{TemplateBinding ym:IconElement.Height}"
+                                Data="{TemplateBinding ym:IconElement.Geometry}"
+                                Fill="{TemplateBinding Foreground}"
+                                SnapsToDevicePixels="True"
+                                Stretch="Uniform" />
+                        </ContentControl>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonIcon.Small"
+        BasedOn="{StaticResource RepeatButtonIcon}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonIconCircular"
+        BasedOn="{StaticResource RepeatButtonBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Width" Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="ym:BorderElement.CornerRadius" Value="0" />
+        <Setter Property="Padding" Value="6" />
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Style="{StaticResource RectangleFocusVisualCircular}" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Style="{StaticResource BorderCircular}">
+                        <ContentControl
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <Path
+                                Width="{TemplateBinding ym:IconElement.Width}"
+                                Height="{TemplateBinding ym:IconElement.Height}"
+                                Data="{TemplateBinding ym:IconElement.Geometry}"
+                                Fill="{TemplateBinding Foreground}"
+                                SnapsToDevicePixels="True"
+                                Stretch="Uniform" />
+                        </ContentControl>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonIconCircular.Small"
+        BasedOn="{StaticResource RepeatButtonIconCircular}"
+        TargetType="RepeatButton">
+        <Setter Property="Width" Value="20" />
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <!--  endregion  -->
+
+    <!--  region RepeatButtonDashed  -->
+
+    <Style
+        x:Key="RepeatButtonDashed"
+        BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashed.Small"
+        BasedOn="{StaticResource RepeatButtonDashed}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashedPrimary"
+        BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashedPrimary.Small"
+        BasedOn="{StaticResource RepeatButtonDashedPrimary}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashedSuccess"
+        BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashedSuccess.Small"
+        BasedOn="{StaticResource RepeatButtonDashedSuccess}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashedInfo"
+        BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashedInfo.Small"
+        BasedOn="{StaticResource RepeatButtonDashedInfo}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashedWarning"
+        BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashedWarning.Small"
+        BasedOn="{StaticResource RepeatButtonDashedWarning}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashedDanger"
+        BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
+    </Style>
+
+    <Style
+        x:Key="RepeatButtonDashedDanger.Small"
+        BasedOn="{StaticResource RepeatButtonDashedDanger}"
+        TargetType="RepeatButton">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="6,1" />
+        <Setter Property="ym:IconElement.Height" Value="12" />
+    </Style>
+
+    <!--  endregion  -->
+
+    <Style
+        x:Key="RepeatButtonCustom"
+        BasedOn="{StaticResource BaseStyle}"
+        TargetType="RepeatButton">
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border
+                        x:Name="Chrome"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{Binding Path=(ym:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                        SnapsToDevicePixels="true">
+                        <ContentPresenter
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value=".9" />
+                            <Setter TargetName="Chrome" Property="Background" Value="{Binding Path=(ym:BackgroundSwitchElement.MouseHoverBackground), RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value=".6" />
+                            <Setter TargetName="Chrome" Property="Background" Value="{Binding Path=(ym:BackgroundSwitchElement.MouseDownBackground), RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.4" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--  endregion  -->
 
     <!--  region RadioButton  -->
@@ -6842,7 +7384,12 @@
     <!--  endregion  -->
     <!--  endregion  -->
 
-    <!--  ListBox  NG  -->
+    <!--  region ListBox  -->
+    <!--  ListBox  YES  -->
+    <!--  Base  -->
+    <!--  默认ListBoxItem样式  -->
+
+    <!--  endregion  -->
 
     <!--  PasswordBox NG  -->
     <!--  ImageViewer NG  -->

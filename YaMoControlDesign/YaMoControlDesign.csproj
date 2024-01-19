@@ -129,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Base\ListBoxBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Base\ListViewBaseStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -154,6 +158,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Styles\Base\RadioButtonBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\RepeatButtonBaseStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -209,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\ListBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\ListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -226,6 +238,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Styles\RadioButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\RepeatButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -268,6 +284,7 @@
     <Compile Include="Controls\Drawer\DrawerContainer.cs" />
     <Compile Include="Controls\Element\BackgroundSwitchElement.cs" />
     <Compile Include="Controls\Element\DropDownElement.cs" />
+    <Compile Include="Controls\Element\EdgeElement.cs" />
     <Compile Include="Controls\Element\IconSwitchElement.cs" />
     <Compile Include="Controls\Element\InfoElement.cs" />
     <Compile Include="Controls\Element\PanelElement.cs" />
@@ -279,6 +296,7 @@
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
+    <Compile Include="Controls\Others\DashedBorder.cs" />
     <Compile Include="Controls\Others\Empty.cs" />
     <Compile Include="Controls\Others\Poptip.cs" />
     <Compile Include="Controls\Panel\AxleCanvas.cs" />
