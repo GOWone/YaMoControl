@@ -293,6 +293,7 @@
     <Compile Include="Controls\Element\VisualElement.cs" />
     <Compile Include="Controls\Growl\Growl.cs" />
     <Compile Include="Controls\Growl\GrowlWindow.cs" />
+    <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
@@ -303,6 +304,7 @@
     <Compile Include="Controls\Element\BorderElement.cs" />
     <Compile Include="Controls\Element\IconElement.cs" />
     <Compile Include="Controls\Element\TipElement.cs" />
+    <Compile Include="Controls\Panel\CirclePanel.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />
     <Compile Include="Controls\ProgressBar\CircleProgressBar.cs" />
     <Compile Include="Controls\ProgressBar\WaveProgressBar.cs" />
@@ -315,6 +317,7 @@
     <Compile Include="Controls\Slider\RangeSlider\RangeThumb.cs" />
     <Compile Include="Controls\Slider\RangeSlider\RangeTrack.cs" />
     <Compile Include="Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
+    <Compile Include="Controls\Input\WatermarkTextBox.cs" />
     <Compile Include="Data\Args\FunctionEventArgs.cs" />
     <Compile Include="Data\Enum\DrawerShowMode.cs" />
     <Compile Include="Data\Enum\ExpandMode.cs" />
@@ -397,6 +400,7 @@
     <Compile Include="Tools\Extension\UIElementExtension.cs" />
     <Compile Include="Tools\Extension\ValueExtension.cs" />
     <Compile Include="Tools\Helper\AnimationHelper.cs" />
+    <Compile Include="Tools\Helper\ArithmeticHelper.cs" />
     <Compile Include="Tools\Helper\ColorHelper.cs" />
     <Compile Include="Tools\Helper\DesignerHelper.cs" />
     <Compile Include="Tools\Helper\DpiHelper.cs" />

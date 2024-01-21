@@ -153,6 +153,8 @@
             </ListView>
 
             <Button Click="Button_Click_1" Content="SideMenu" />
+
+
         </StackPanel>
     </Grid>
 </Window>
