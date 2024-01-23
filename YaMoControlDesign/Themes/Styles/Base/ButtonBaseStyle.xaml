@@ -14,7 +14,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <ym:SimplePanel>
-                        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding ym:BorderElement.CornerRadius}" />
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="{TemplateBinding ym:BorderElement.CornerRadius}" />
                         <Border
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
