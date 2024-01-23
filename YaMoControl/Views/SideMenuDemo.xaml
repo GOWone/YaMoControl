@@ -62,7 +62,7 @@
             </Border>
 
             <StackPanel Orientation="Horizontal">
-                <ym:CircleProgressBar Value="10" />
+                <ym:CircleProgressBar Value="10"/>
                 <ym:CircleProgressBar
                     ArcThickness="6"
                     Style="{StaticResource ProgressBarSuccessCircle}"
