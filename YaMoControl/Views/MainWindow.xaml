@@ -53,7 +53,7 @@
                 ym:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"
                 Style="{StaticResource ToggleButtonIcon}" />
             <ToggleButton
-                Margin="5,9"
+                Margin="5,9" Width="100" Height="50"
                 HorizontalAlignment="Center"
                 ym:VisualElement.HighlightBrush="{DynamicResource DangerBrush}"
                 IsChecked="True"
