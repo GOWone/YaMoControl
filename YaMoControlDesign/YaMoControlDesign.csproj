@@ -229,6 +229,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\PasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Poptip.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -293,6 +297,7 @@
     <Compile Include="Controls\Element\VisualElement.cs" />
     <Compile Include="Controls\Growl\Growl.cs" />
     <Compile Include="Controls\Growl\GrowlWindow.cs" />
+    <Compile Include="Controls\Input\PasswordBox.cs" />
     <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />

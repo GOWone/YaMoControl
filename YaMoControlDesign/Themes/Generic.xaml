@@ -7391,7 +7391,56 @@
 
     <!--  endregion  -->
 
-    <!--  PasswordBox NG  -->
+    <!--  region PasswordBox  -->
+    <!--  PasswordBox YES  -->
+    <Style
+        x:Key="PasswordBoxBaseStyle"
+        BasedOn="{StaticResource InputElementBaseStyle}"
+        TargetType="PasswordBox">
+        <Setter Property="PasswordChar" Value="●" />
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="AllowDrop" Value="true" />
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <ym:SimplePanel x:Name="root">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(ym:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                            SnapsToDevicePixels="True" />
+                        <ScrollViewer
+                            x:Name="PART_ContentHost"
+                            Margin="-2,0"
+                            Padding="{TemplateBinding Padding}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden" />
+                    </ym:SimplePanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="border" Property="Opacity" Value="0.4" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style BasedOn="{StaticResource PasswordBoxBaseStyle}" TargetType="PasswordBox" />
+    <!--  endregion  -->
+
     <!--  ImageViewer NG  -->
     <!--  ImageSelector NG  -->
     <!--  Carousel NG  -->

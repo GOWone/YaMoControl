@@ -11,6 +11,7 @@
     prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
         <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
+
             <Border
                 Width="200"
                 Height="200"
@@ -23,6 +24,10 @@
                 Margin="5"
                 Content="CheckBox"
                 Style="{StaticResource CheckBoxBaseStyle}" />
+            <PasswordBox
+                Width="200"
+                Height="30"
+                Password="123456" />
             <TextBlock Style="{StaticResource TextBlockDefaultBold}" Text="123" />
             <Label
                 Margin="5"
@@ -78,12 +83,11 @@
                 <ToggleButton
                     HorizontalAlignment="Left"
                     Content="Left-Window"
-                    IsChecked="{Binding IsOpen, ElementName=DrawerLeft}"
+                    IsChecked="{Binding IsOpen, ElementName=DrawerRightInContainer}"
                     Style="{StaticResource ToggleButtonSwitch}" />
                 <ym:Drawer
-                    Name="DrawerLeft"
+                    Name="DrawerRightInContainer"
                     Height="20"
-                    Dock="Left"
                     ShowMode="Push">
                     <Border
                         Width="200"
