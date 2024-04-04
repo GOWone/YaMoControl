@@ -642,7 +642,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="{Binding Path=(ym:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Double2GridLengtymonverter}}" MinHeight="{Binding Path=(ym:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}" />
+                <RowDefinition Height="{Binding Path=(ym:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Double2GridLengthConverter}}" MinHeight="{Binding Path=(ym:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}" />
             </Grid.RowDefinitions>
             <DockPanel
                 Margin="{Binding Path=(ym:TitleElement.MarginOnTheTop), RelativeSource={RelativeSource TemplatedParent}}"

@@ -27,7 +27,9 @@
             <PasswordBox
                 Width="200"
                 Height="30"
-                Password="123456" />
+                Margin="0,16,0,0"
+                ym:InfoElement.Placeholder="123"
+                Style="{StaticResource PasswordBoxExtend}" />
             <TextBlock Style="{StaticResource TextBlockDefaultBold}" Text="123" />
             <Label
                 Margin="5"

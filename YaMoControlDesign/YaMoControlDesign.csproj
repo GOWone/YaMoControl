@@ -276,6 +276,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\Attach\GridViewAttach.cs" />
+    <Compile Include="Controls\Attach\PasswordBoxAttach.cs" />
     <Compile Include="Controls\Attach\ScrollViewerAttach.cs" />
     <Compile Include="Controls\Attach\ToggleButtonAttach.cs" />
     <Compile Include="Controls\Attach\WindowAttach.cs" />
