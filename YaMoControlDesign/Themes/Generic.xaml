@@ -4927,7 +4927,7 @@
                                 Width="4"
                                 HorizontalAlignment="Left"
                                 Fill="{TemplateBinding BorderBrush}" />
-                            <ContentControl Margin="4,0,0,0">
+                            <ContentControl Margin="2,0,0,0">
                                 <DockPanel Margin="{TemplateBinding Padding}">
                                     <ContentControl Name="PresenterIcon" Width="40">
                                         <ContentPresenter
@@ -4937,7 +4937,7 @@
                                     </ContentControl>
                                     <ContentPresenter
                                         Name="PresenterHeader"
-                                        Margin="6,0,0,0"
+                                        Margin="3,0,0,0"
                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                         ContentSource="Header" />
