@@ -6,7 +6,6 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using YaMoControlDesign.Data;
 
-
 namespace YaMoControlDesign.Controls
 {
     public abstract class LoadingBase : ContentControl

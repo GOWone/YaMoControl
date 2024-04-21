@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using YaMoControlDesign.Data;
 
-namespace HandyControl.Controls
+namespace YaMoControlDesign.Controls
 {
 
     public class StatusSwitchElement

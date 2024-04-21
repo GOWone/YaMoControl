@@ -20,6 +20,18 @@
                 Style="{StaticResource BorderRegion}">
                 <TextBlock Style="{StaticResource TextBlockDefaultBold}" Text="Border" />
             </Border>
+            <Border
+                Width="200"
+                Height="200"
+                Margin="5"
+                Background="AliceBlue"
+                Style="{StaticResource BorderRegion}">
+                <ym:Loading
+                    Margin="10"
+                    Content="loading"
+                    FocusedBrush="Black"
+                    Style="{StaticResource WaveLoading}" />
+            </Border>
             <CheckBox
                 Margin="5"
                 Content="CheckBox"
