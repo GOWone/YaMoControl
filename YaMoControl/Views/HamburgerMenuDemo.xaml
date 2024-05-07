@@ -1,0 +1,63 @@
+﻿<Window
+    x:Class="YaMoControl.Views.HamburgerMenuDemo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:YaMoControl.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ym="clr-namespace:YaMoControlDesign.Controls;assembly=YaMoControlDesign"
+    Title="HamburgerMenuDemo"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <ym:HamburgerMenu
+            Width="500"
+            Height="500"
+            Margin="10"
+            BorderThickness="1"
+            HamburgerButtonClick="HamburgerMenu_HamburgerButtonClick"
+            Header="开始"
+            IsExpanded="False"
+            SelectedIndex="0"
+            TransitionType="None">
+            <ym:HamburgerMenu.PaneHeader>
+                <TextBlock
+                    Margin="20,10"
+                    HorizontalAlignment="Center"
+                    Text="PaneHeader" />
+            </ym:HamburgerMenu.PaneHeader>
+            <ym:HamburgerMenu.OptionsItemsSource>
+                <ym:HamburgerMenuItemCollection>
+                    <ym:HamburgerMenuOptionsItem Header="睡眠" IconType="MoonLine" />
+                    <ym:HamburgerMenuOptionsItem Header="关机" IconType="ShutDownLine" />
+                    <ym:HamburgerMenuOptionsItem Header="重启" IconType="RestartLine" />
+                    <ym:HamburgerMenuOptionsItem Header="更多" IconType="More2Line" />
+                </ym:HamburgerMenuItemCollection>
+            </ym:HamburgerMenu.OptionsItemsSource>
+            <ym:HamburgerMenuItem
+                Content="用户"
+                Header="用户"
+                IconType="UserLine" />
+            <ym:HamburgerMenuItem
+                Content="文档"
+                Header="文档"
+                IconType="FileLine" />
+            <ym:HamburgerMenuItem
+                Content="图片"
+                Header="图片"
+                IconType="ImageLine" />
+            <ym:HamburgerMenuItem
+                Content="设置"
+                Header="设置"
+                IconType="Settings2Line" />
+            <ym:HamburgerMenuItem Content="自定义" Header="自定义" />
+            <ym:HamburgerMenuItem Content="无图标" Header="无图标" />
+            <ym:HamburgerMenuItem
+                Content="不可用"
+                Header="不可用"
+                IconType="EmotionUnhappyLine"
+                IsEnabled="False" />
+        </ym:HamburgerMenu>
+    </Grid>
+</Window>

@@ -7879,6 +7879,760 @@
         </Setter>
     </Style>
     <!--  endregion  -->
+
+    <!--  region HamgurgerMenu  -->
+    <!--  HamburgerMenuItem  -->
+    <Style x:Key="ymHamburgerMenuItem" TargetType="{x:Type ym:HamburgerMenuItem}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="{Binding Path=(ym:ItemsControlHelper.ItemPadding), RelativeSource={RelativeSource AncestorType=TabControl}}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ToolTipService.Placement" Value="Right" />
+        <Setter Property="ToolTipService.PlacementTarget" Value="{Binding RelativeSource={RelativeSource Self}}" />
+        <Setter Property="ToolTipService.InitialShowDelay" Value="300" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ym:HamburgerMenuItem}">
+                    <Grid x:Name="root">
+                        <Grid Margin="{Binding Path=(ym:ItemsControlHelper.ItemMargin), RelativeSource={RelativeSource AncestorType=TabControl}}">
+                            <ym:ControlMask
+                                Background="{Binding Path=(ym:ControlHelper.FocusedBrush), RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                CornerRadius="{Binding Path=(ym:ControlHelper.CornerRadius), RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                IsActive="{TemplateBinding IsSelected}"
+                                MaskOpacity="{Binding Path=(ym:ControlHelper.MaskOpacity), RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                ParentElement="{Binding ElementName=root}" />
+
+                            <ym:Transition
+                                x:Name="littleBar"
+                                HorizontalAlignment="Left"
+                                IsShow="{TemplateBinding IsSelected}"
+                                Type="ZoomY"
+                                Visibility="{Binding IsShowLittleBar, RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}, Converter={StaticResource BooleanToVisibleConverter}}">
+                                <Rectangle
+                                    Width="3"
+                                    Height="{Binding ActualHeight, ElementName=header}"
+                                    Fill="{Binding Path=(ym:ControlHelper.SelectedBrush), RelativeSource={RelativeSource AncestorType=ItemsControl}}" />
+                            </ym:Transition>
+                        </Grid>
+
+                        <Border x:Name="Bd" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition x:Name="iconClolumn" Width="{Binding IconWidth, RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}, Converter={StaticResource DoubleToGridLengthConverter}}" />
+                                    <ColumnDefinition x:Name="headerColumn" Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <ym:Icon
+                                    x:Name="icon"
+                                    Focusable="False"
+                                    IsHitTestVisible="False"
+                                    Type="{TemplateBinding IconType}"
+                                    Visibility="Collapsed" />
+
+                                <ContentPresenter
+                                    x:Name="iconContent"
+                                    Width="{Binding ActualHeight, ElementName=header}"
+                                    Height="{Binding ActualHeight, ElementName=header}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    ContentSource="Icon"
+                                    Focusable="False"
+                                    IsHitTestVisible="False" />
+
+                                <ContentPresenter
+                                    x:Name="header"
+                                    Grid.Column="1"
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    ContentSource="Header"
+                                    Focusable="False"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="root" Property="Opacity" Value="{DynamicResource UnenableOpcity}" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="{Binding Path=(ym:ControlHelper.FocusedForegroundBrush), RelativeSource={RelativeSource AncestorType=ItemsControl}}" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IconType, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource NotNullConverter}}" Value="True">
+                            <Setter TargetName="icon" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="iconContent" Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsExpanded, RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}" Value="False">
+                            <Setter Property="ToolTip" Value="{Binding Header, RelativeSource={RelativeSource Self}, Converter={StaticResource CloneConverter}}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}" Value="Right">
+                            <Setter TargetName="littleBar" Property="HorizontalAlignment" Value="Right" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  HamburgerMenuOptionsItem  -->
+    <Style x:Key="ymHamburgerMenuOptionsItem" TargetType="{x:Type ym:HamburgerMenuOptionsItem}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ym:HamburgerMenuOptionsItem}">
+                    <Grid
+                        x:Name="root"
+                        Background="{TemplateBinding Background}"
+                        ToolTip="{TemplateBinding Header,
+                                                  Converter={StaticResource CloneConverter}}"
+                        ToolTipService.InitialShowDelay="300"
+                        ToolTipService.IsEnabled="{Binding IsExpanded, Converter={StaticResource BooleanToInverseConverter}, RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}"
+                        ToolTipService.Placement="Right"
+                        ToolTipService.PlacementTarget="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}">
+                        <ym:ControlMask
+                            Margin="{Binding Path=(ym:ItemsControlHelper.ItemMargin), RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}"
+                            Background="{Binding Path=(ym:ControlHelper.FocusedBrush), RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}"
+                            CornerRadius="{Binding Path=(ym:ControlHelper.CornerRadius), RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}"
+                            IsActive="{TemplateBinding IsPressed}"
+                            MaskOpacity="{Binding Path=(ym:ControlHelper.MaskOpacity), RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}" />
+
+                        <Border x:Name="Bd" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition x:Name="iconClolumn" Width="{Binding IconWidth, RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}, Converter={StaticResource DoubleToGridLengthConverter}}" />
+                                    <ColumnDefinition x:Name="headerColumn" Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <ym:Icon
+                                    x:Name="icon"
+                                    Focusable="False"
+                                    IsHitTestVisible="False"
+                                    Type="{TemplateBinding IconType}"
+                                    Visibility="Collapsed" />
+
+                                <ContentPresenter
+                                    x:Name="iconContent"
+                                    Width="{Binding ActualHeight, ElementName=header}"
+                                    Height="{Binding ActualHeight, ElementName=header}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Content="{TemplateBinding Icon}"
+                                    ContentSource="Icon"
+                                    Focusable="False"
+                                    IsHitTestVisible="False" />
+
+                                <DockPanel Grid.Column="1" Margin="{Binding Path=(ym:ItemsControlHelper.ItemPadding), RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}">
+                                    <ym:Icon
+                                        x:Name="moreIcon"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        DockPanel.Dock="Right"
+                                        Type="ArrowRightSLine"
+                                        Visibility="Collapsed" />
+                                    <ContentPresenter
+                                        x:Name="header"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        ContentSource="Header"
+                                        RecognizesAccessKey="True"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                </DockPanel>
+
+                                <Popup
+                                    x:Name="Popup"
+                                    AllowsTransparency="True"
+                                    Focusable="False"
+                                    IsOpen="{TemplateBinding IsSubmenuOpen}"
+                                    Placement="Right"
+                                    PopupAnimation="Fade">
+                                    <Grid>
+                                        <Border
+                                            Margin="5"
+                                            Padding="5"
+                                            Background="{Binding PaneBackground, RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}"
+                                            CornerRadius="{Binding Path=(ym:ControlHelper.CornerRadius), RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}"
+                                            Effect="{DynamicResource AllDirectionEffect}" />
+                                        <Border
+                                            x:Name="SubmenuBorder"
+                                            Margin="5"
+                                            Padding="5"
+                                            Background="{Binding PaneBackground, RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="{Binding Path=(ym:ControlHelper.CornerRadius), RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                            <ScrollViewer CanContentScroll="True" Style="{StaticResource MenuScrollViewer}">
+                                                <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
+                                            </ScrollViewer>
+                                        </Border>
+                                    </Grid>
+                                </Popup>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="root" Property="Opacity" Value="{DynamicResource UnenableOpcity}" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IconType, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource NotNullConverter}}" Value="True">
+                            <Setter TargetName="icon" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="iconContent" Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                        <Trigger Property="Role" Value="SubmenuItem">
+                            <Setter TargetName="root" Property="ToolTipService.IsEnabled" Value="False" />
+                            <Setter TargetName="header" Property="Margin" Value="0,0,10,0" />
+                        </Trigger>
+                        <Trigger Property="Role" Value="SubmenuHeader">
+                            <Setter TargetName="moreIcon" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="root" Property="ToolTipService.IsEnabled" Value="False" />
+                            <Setter TargetName="header" Property="Margin" Value="0,0,10,0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="ymHamburgerMenuOptions"
+        BasedOn="{StaticResource ymMenu}"
+        TargetType="ym:HamburgerMenuOptions">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ym:HamburgerMenuOptions}">
+                    <Border
+                        x:Name="border"
+                        Background="Transparent"
+                        CornerRadius="{DynamicResource AllControlCornerRadius}">
+                        <StackPanel ClipToBounds="True" IsItemsHost="True" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ym:Icon
+        x:Key="HamburgerMenuIcon"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        x:Shared="False"
+        Type="MenuLine" />
+
+    <!--  HamburgerMenu  -->
+    <Style x:Key="ymHamburgerMenu" TargetType="{x:Type ym:HamburgerMenu}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Foreground" Value="{DynamicResource DefaultForeground}" />
+        <Setter Property="PaneBackground" Value="{DynamicResource DefaultBackground}" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ymHamburgerMenuItem}" />
+        <Setter Property="ym:ControlHelper.SelectedBrush" Value="{DynamicResource Primary}" />
+        <Setter Property="ym:ControlHelper.FocusedBrush" Value="{DynamicResource Mask}" />
+        <Setter Property="ym:ControlHelper.FocusedForegroundBrush" Value="{DynamicResource DefaultForeground}" />
+        <Setter Property="ym:ControlHelper.CornerRadius" Value="{DynamicResource AllControlCornerRadius}" />
+        <Setter Property="ym:ControlHelper.MaskOpacity" Value="0.6" />
+        <Setter Property="ym:ItemsControlHelper.ItemMargin" Value="2 1" />
+        <Setter Property="ym:ItemsControlHelper.ItemPadding" Value="5 8" />
+        <Setter Property="ym:HeaderHelper.Background" Value="Transparent" />
+        <Setter Property="ym:HeaderHelper.Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="ym:HeaderHelper.FontSize" Value="{Binding FontSize, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="ym:HeaderHelper.FontWeight" Value="Normal" />
+        <Setter Property="ym:HeaderHelper.HorizontalAlignment" Value="Left" />
+        <Setter Property="ym:HeaderHelper.Padding" Value="0 10" />
+        <Setter Property="ym:HeaderHelper.Margin" Value="0 0 0 0" />
+        <Setter Property="CollapsedWidth" Value="40" />
+        <Setter Property="ExpandedWidth" Value="200" />
+        <Setter Property="IsExpanded" Value="True" />
+        <Setter Property="IsShowHamburgerButton" Value="True" />
+        <Setter Property="IsShowLittleBar" Value="True" />
+        <Setter Property="OptionsItemContainerStyle" Value="{StaticResource ymHamburgerMenuOptionsItem}" />
+        <Setter Property="TabStripPlacement" Value="Left" />
+        <Setter Property="TransitionType" Value="Fade" />
+        <Setter Property="TransitionDuration" Value="0:0:0.5" />
+        <Setter Property="IconWidth" Value="{Binding CollapsedWidth, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="ym:MenuHelper.IconWidth" Value="{Binding IconWidth, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="MenuIcon" Value="{StaticResource HamburgerMenuIcon}" />
+        <Setter Property="PaneBackground" Value="{DynamicResource HeaderBackground}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ym:HamburgerMenu}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid x:Name="root">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="menuColumn" Width="Auto" />
+                                <ColumnDefinition x:Name="contentColumn" Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                x:Name="menu"
+                                Background="{TemplateBinding PaneBackground}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding PaneBorderThickness}"
+                                CornerRadius="{TemplateBinding PaneBorderCornerRadius}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                <ym:Transition
+                                    CollapsedSize="{TemplateBinding CollapsedWidth}"
+                                    IsFade="False"
+                                    IsShow="{TemplateBinding IsExpanded}"
+                                    Type="CollapseLeft">
+                                    <Grid Width="{TemplateBinding ExpandedWidth}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition x:Name="menuRow" Height="Auto" />
+                                            <RowDefinition
+                                                x:Name="paneHeaderRow"
+                                                Height="Auto"
+                                                MinHeight="10" />
+                                            <RowDefinition x:Name="itemsRow" Height="*" />
+                                            <RowDefinition x:Name="optionsRow" Height="Auto" />
+                                            <RowDefinition
+                                                x:Name="paneFooterRow"
+                                                Height="Auto"
+                                                MinHeight="10" />
+                                        </Grid.RowDefinitions>
+
+                                        <Border
+                                            x:Name="headerBorder"
+                                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ym:Transition}}"
+                                            Margin="{Binding Path=(ym:HeaderHelper.Margin), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                            HorizontalAlignment="Left"
+                                            Background="{Binding Path=(ym:HeaderHelper.Background), RelativeSource={RelativeSource Mode=TemplatedParent}}">
+                                            <Button
+                                                x:Name="PART_HamburgerButton"
+                                                Height="Auto"
+                                                Padding="{Binding Path=(ym:HeaderHelper.Padding), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                HorizontalContentAlignment="{Binding Path=(ym:HeaderHelper.HorizontalAlignment), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                ym:ControlHelper.CornerRadius="{Binding Path=(ym:ControlHelper.CornerRadius), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                ym:ControlHelper.FocusedBrush="{Binding Path=(ym:ControlHelper.FocusedBrush), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                ym:ControlHelper.MaskOpacity="{Binding Path=(ym:ControlHelper.MaskOpacity), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                Foreground="{Binding Path=(ym:HeaderHelper.Foreground), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                Style="{StaticResource TextButton}"
+                                                ToolTipService.InitialShowDelay="100"
+                                                ToolTipService.Placement="Right"
+                                                ToolTipService.PlacementTarget="{Binding RelativeSource={RelativeSource Self}}"
+                                                ToolTipService.VerticalOffset="5">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="{TemplateBinding CollapsedWidth, Converter={StaticResource DoubleToGridLengthConverter}}" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <ContentPresenter ContentSource="MenuIcon" />
+
+                                                    <TextBlock
+                                                        x:Name="header"
+                                                        Grid.Column="1"
+                                                        VerticalAlignment="Center"
+                                                        FontSize="{Binding Path=(ym:HeaderHelper.FontSize), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                        FontWeight="{Binding Path=(ym:HeaderHelper.FontWeight), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                        Text="{TemplateBinding Header}" />
+                                                </Grid>
+                                            </Button>
+                                        </Border>
+
+                                        <ContentPresenter
+                                            Grid.Row="1"
+                                            ContentSource="PaneHeader"
+                                            Focusable="False"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+                                        <Border
+                                            x:Name="Bd"
+                                            Grid.Row="2"
+                                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ym:Transition}}"
+                                            HorizontalAlignment="Left"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                            <ScrollViewer
+                                                x:Name="itemsScroll"
+                                                ym:ControlHelper.CornerRadius="{Binding Path=(ym:ControlHelper.CornerRadius), RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}"
+                                                ym:ControlHelper.FocusedBrush="{Binding Path=(ym:ControlHelper.FocusedBrush), RelativeSource={RelativeSource AncestorType=ym:HamburgerMenu}}"
+                                                ym:ScrollViewerHelper.HorizontalDelta="150"
+                                                ym:ScrollViewerHelper.VerticalDelta="75"
+                                                HorizontalScrollBarVisibility="Disabled"
+                                                Style="{StaticResource OnlyArrowScrollViewer}"
+                                                VerticalScrollBarVisibility="Auto">
+                                                <TabPanel
+                                                    Panel.ZIndex="1"
+                                                    IsItemsHost="True"
+                                                    KeyboardNavigation.TabIndex="1" />
+                                            </ScrollViewer>
+                                        </Border>
+
+                                        <ym:HamburgerMenuOptions
+                                            x:Name="PART_OptionsItemsControl"
+                                            Grid.Row="3"
+                                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ym:Transition}}"
+                                            ItemContainerStyle="{TemplateBinding OptionsItemContainerStyle}"
+                                            ItemTemplate="{TemplateBinding OptionsItemTemplate}"
+                                            ItemTemplateSelector="{TemplateBinding OptionsItemTemplateSelector}"
+                                            ItemsSource="{TemplateBinding OptionsItemsSource}"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                            Style="{StaticResource ymHamburgerMenuOptions}" />
+
+                                        <ContentPresenter
+                                            Grid.Row="4"
+                                            ContentSource="PaneFooter"
+                                            Focusable="False"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    </Grid>
+                                </ym:Transition>
+                            </Border>
+
+                            <Border
+                                x:Name="contentPanel"
+                                Grid.Column="1"
+                                KeyboardNavigation.DirectionalNavigation="Contained"
+                                KeyboardNavigation.TabIndex="2"
+                                KeyboardNavigation.TabNavigation="Local">
+                                <ym:Transition
+                                    x:Name="PART_ContentTransition"
+                                    Type="{TemplateBinding TransitionType}"
+                                    Duration="{TemplateBinding TransitionDuration}">
+                                    <ContentPresenter
+                                        x:Name="PART_SelectedContentHost"
+                                        Margin="{TemplateBinding Padding}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        ContentSource="SelectedContent"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                </ym:Transition>
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="root" Property="Opacity" Value="{DynamicResource UnenableOpcity}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsGrouping" Value="True" />
+                                <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+                        </MultiTrigger>
+                        <Trigger Property="IsShowHamburgerButton" Value="False">
+                            <Setter TargetName="PART_HamburgerButton" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="IsExpanded" Value="False">
+                            <Setter TargetName="PART_HamburgerButton" Property="ToolTip" Value="{Binding Header, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                        </Trigger>
+                        <Trigger Property="TabStripPlacement" Value="Right">
+                            <Setter TargetName="menuColumn" Property="Width" Value="*" />
+                            <Setter TargetName="contentColumn" Property="Width" Value="Auto" />
+                            <Setter TargetName="menu" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="contentPanel" Property="Grid.Column" Value="0" />
+                        </Trigger>
+                        <Trigger SourceName="itemsScroll" Property="ComputedVerticalScrollBarVisibility" Value="Visible">
+                            <Setter TargetName="headerBorder" Property="Margin" Value="0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--  endregion  -->
+
+    <!--  region Icon  -->
+    <!--  Converter  -->
+    <converter:GetCanvasCentreConverter x:Key="getCanvasCentre" />
+
+    <Style TargetType="{x:Type ym:Icon}">
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Width">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource MathAddConverter}">
+                    <Binding Path="FontSize" RelativeSource="{RelativeSource Self}" />
+                    <Binding Source="6" />
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Height" Value="{Binding Width, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ym:Icon}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Viewbox>
+                            <Canvas
+                                x:Name="canvas"
+                                Width="26"
+                                Height="26">
+                                <Path
+                                    x:Name="icon"
+                                    Data="{Binding Code, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Fill="{TemplateBinding Foreground}"
+                                    Stretch="Uniform">
+                                    <Canvas.Right>
+                                        <MultiBinding Converter="{StaticResource getCanvasCentre}">
+                                            <Binding ElementName="canvas" Path="ActualWidth" />
+                                            <Binding ElementName="icon" Path="ActualWidth" />
+                                        </MultiBinding>
+                                    </Canvas.Right>
+                                    <Canvas.Top>
+                                        <MultiBinding Converter="{StaticResource getCanvasCentre}">
+                                            <Binding ElementName="canvas" Path="ActualHeight" />
+                                            <Binding ElementName="icon" Path="ActualHeight" />
+                                        </MultiBinding>
+                                    </Canvas.Top>
+                                </Path>
+                            </Canvas>
+                        </Viewbox>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--  endregion  -->
+
+    <!--  region YaMoScrollViewer  -->
+    <Style x:Key="ymScrollViewer" TargetType="{x:Type ScrollViewer}">
+        <Setter Property="PanningMode" Value="Both" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ym:ControlHelper.CornerRadius" Value="{DynamicResource AllControlCornerRadius}" />
+        <Setter Property="ym:ControlHelper.MaskOpacity" Value="0.99" />
+        <Setter Property="ym:ControlHelper.FocusedBrush" Value="{DynamicResource Mask}" />
+        <Setter Property="ym:ScrollViewerHelper.ScrollBarBackground" Value="Transparent" />
+        <Setter Property="ym:ScrollViewerHelper.ScrollBarForeground" Value="{DynamicResource ScrollBarBrush}" />
+        <Setter Property="ym:ScrollViewerHelper.ScrollBarSize" Value="14" />
+        <Setter Property="ym:ScrollViewerHelper.ShowArrowButton" Value="True" />
+        <Setter Property="ym:ScrollViewerHelper.ArrowIconBrush" Value="{Binding Foreground, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="ym:ScrollViewerHelper.IsDynamicBarSize" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                    <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Rectangle
+                            x:Name="Corner"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Fill="Transparent" />
+
+                        <ScrollContentPresenter
+                            x:Name="PART_ScrollContentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            CanContentScroll="{TemplateBinding CanContentScroll}"
+                            CanHorizontallyScroll="False"
+                            CanVerticallyScroll="False"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+
+                        <ScrollBar
+                            x:Name="PART_HorizontalScrollBar"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Panel.ZIndex="100"
+                            AutomationProperties.AutomationId="HorizontalScrollBar"
+                            Cursor="Arrow"
+                            Maximum="{TemplateBinding ScrollableWidth}"
+                            Minimum="0"
+                            Orientation="Horizontal"
+                            Style="{StaticResource ymScrollBar}"
+                            ViewportSize="{TemplateBinding ViewportWidth}"
+                            Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                            Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+
+                        <ScrollBar
+                            x:Name="PART_VerticalScrollBar"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Panel.ZIndex="100"
+                            AutomationProperties.AutomationId="VerticalScrollBar"
+                            Cursor="Arrow"
+                            Maximum="{TemplateBinding ScrollableHeight}"
+                            Minimum="0"
+                            Style="{StaticResource ymScrollBar}"
+                            ViewportSize="{TemplateBinding ViewportHeight}"
+                            Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                            Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ym:ScrollViewerHelper.IsDynamicBarSize" Value="True">
+                            <Setter TargetName="PART_ScrollContentPresenter" Property="Grid.RowSpan" Value="2" />
+                            <Setter TargetName="PART_ScrollContentPresenter" Property="Grid.ColumnSpan" Value="2" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  小滚动条  -->
+    <Style
+        x:Key="SmallScrollViewer"
+        BasedOn="{StaticResource ymScrollViewer}"
+        TargetType="{x:Type ScrollViewer}">
+        <Setter Property="ym:ScrollViewerHelper.ScrollBarSize" Value="8" />
+        <Setter Property="ym:ScrollViewerHelper.ShowArrowButton" Value="False" />
+    </Style>
+
+    <Style
+        x:Key="ymScrollViewerArrowButton"
+        BasedOn="{StaticResource ymScrollBarArrowButton}"
+        TargetType="RepeatButton">
+        <Setter Property="FontSize" Value="{Binding Path=FontSize, RelativeSource={RelativeSource AncestorType=ScrollViewer}}" />
+        <Setter Property="Foreground" Value="{Binding Path=(ym:ScrollViewerHelper.ArrowIconBrush), RelativeSource={RelativeSource AncestorType=ScrollViewer}}" />
+        <Setter Property="ym:ControlHelper.CornerRadius" Value="{Binding Path=(ym:ControlHelper.CornerRadius), RelativeSource={RelativeSource AncestorType=ScrollViewer}}" />
+        <Setter Property="ym:ControlHelper.FocusedBrush" Value="{Binding Path=(ym:ControlHelper.FocusedBrush), RelativeSource={RelativeSource AncestorType=ScrollViewer}}" />
+        <Setter Property="ym:ControlHelper.MaskOpacity" Value="{Binding Path=(ym:ControlHelper.MaskOpacity), RelativeSource={RelativeSource AncestorType=ScrollViewer}}" />
+    </Style>
+
+    <!--  只有箭头，没有滚动条  -->
+    <Style x:Key="OnlyArrowScrollViewer" TargetType="{x:Type ScrollViewer}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ym:ControlHelper.CornerRadius" Value="{DynamicResource AllControlCornerRadius}" />
+        <Setter Property="ym:ControlHelper.MaskOpacity" Value="0.6" />
+        <Setter Property="ym:ControlHelper.FocusedBrush" Value="{DynamicResource Mask}" />
+        <Setter Property="ym:ScrollViewerHelper.ScrollBarBackground" Value="Transparent" />
+        <Setter Property="ym:ScrollViewerHelper.ScrollBarForeground" Value="{DynamicResource BorderLighter}" />
+        <Setter Property="ym:ScrollViewerHelper.ShowArrowButton" Value="True" />
+        <Setter Property="ym:ScrollViewerHelper.IsOnlyArrow" Value="True" />
+        <Setter Property="ym:ScrollViewerHelper.HorizontalDelta" Value="100" />
+        <Setter Property="ym:ScrollViewerHelper.VerticalDelta" Value="100" />
+        <Setter Property="ym:ScrollViewerHelper.ArrowIconBrush" Value="{Binding Foreground, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="ym:ScrollViewerHelper.ArrowButtonStyle" Value="{StaticResource ymScrollViewerArrowButton}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                    <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ScrollContentPresenter
+                            x:Name="PART_ScrollContentPresenter"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="{TemplateBinding Padding}"
+                            CanContentScroll="{TemplateBinding CanContentScroll}"
+                            CanHorizontallyScroll="False"
+                            CanVerticallyScroll="False"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+
+                        <RepeatButton
+                            x:Name="leftButton"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Height="Auto"
+                            VerticalAlignment="Stretch"
+                            Style="{Binding Path=(ym:ScrollViewerHelper.ArrowButtonStyle), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                            Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}">
+                            <ym:Icon Type="ArrowLeftSLine" />
+                        </RepeatButton>
+
+                        <RepeatButton
+                            x:Name="rightButton"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Height="Auto"
+                            VerticalAlignment="Stretch"
+                            Style="{Binding Path=(ym:ScrollViewerHelper.ArrowButtonStyle), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                            Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}">
+                            <ym:Icon Type="ArrowRightSLine" />
+                        </RepeatButton>
+
+                        <RepeatButton
+                            x:Name="upButton"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Width="Auto"
+                            VerticalAlignment="Stretch"
+                            Style="{Binding Path=(ym:ScrollViewerHelper.ArrowButtonStyle), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                            Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}">
+                            <ym:Icon Type="ArrowUpSLine" />
+                        </RepeatButton>
+
+                        <RepeatButton
+                            x:Name="downButton"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Width="Auto"
+                            VerticalAlignment="Stretch"
+                            Style="{Binding Path=(ym:ScrollViewerHelper.ArrowButtonStyle), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                            Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}">
+                            <ym:Icon Type="ArrowDownSLine" />
+                        </RepeatButton>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="VerticalOffset" Value="0">
+                            <Setter TargetName="upButton" Property="IsEnabled" Value="False" />
+                        </Trigger>
+                        <Trigger Property="HorizontalOffset" Value="0">
+                            <Setter TargetName="leftButton" Property="IsEnabled" Value="False" />
+                        </Trigger>
+                        <DataTrigger Value="True">
+                            <DataTrigger.Binding>
+                                <MultiBinding Converter="{StaticResource IsEqualConverter}">
+                                    <Binding Path="ScrollableHeight" RelativeSource="{RelativeSource Self}" />
+                                    <Binding Path="VerticalOffset" RelativeSource="{RelativeSource Self}" />
+                                </MultiBinding>
+                            </DataTrigger.Binding>
+                            <Setter TargetName="downButton" Property="IsEnabled" Value="False" />
+                        </DataTrigger>
+                        <DataTrigger Value="True">
+                            <DataTrigger.Binding>
+                                <MultiBinding Converter="{StaticResource IsEqualConverter}">
+                                    <Binding Path="ScrollableWidth" RelativeSource="{RelativeSource Self}" />
+                                    <Binding Path="HorizontalOffset" RelativeSource="{RelativeSource Self}" />
+                                </MultiBinding>
+                            </DataTrigger.Binding>
+                            <Setter TargetName="rightButton" Property="IsEnabled" Value="False" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--  endregion  -->
     <!--  ImageViewer NG  -->
     <!--  ImageSelector NG  -->
     <!--  Carousel NG  -->

@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -213,6 +214,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\HambugerMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Icon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Label.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -277,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\YaMoScrollViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\Attach\GridViewAttach.cs" />
@@ -302,14 +315,22 @@
     <Compile Include="Controls\Element\VisualElement.cs" />
     <Compile Include="Controls\Growl\Growl.cs" />
     <Compile Include="Controls\Growl\GrowlWindow.cs" />
+    <Compile Include="Controls\HambugerMenu\HamburgerMenu.cs" />
+    <Compile Include="Controls\HambugerMenu\HamburgerMenuItem.cs" />
+    <Compile Include="Controls\HambugerMenu\HamburgerMenuItemCollection.cs" />
+    <Compile Include="Controls\HambugerMenu\HamburgerMenuOptions.cs" />
+    <Compile Include="Controls\HambugerMenu\HamburgerMenuOptionsItem.cs" />
+    <Compile Include="Controls\Icon\Icon.cs" />
     <Compile Include="Controls\Input\PasswordBox.cs" />
     <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\Loading\Loading.cs" />
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
+    <Compile Include="Controls\Others\ControlMask.cs" />
     <Compile Include="Controls\Others\DashedBorder.cs" />
     <Compile Include="Controls\Others\Empty.cs" />
+    <Compile Include="Controls\Others\ItemsControlHelper.cs" />
     <Compile Include="Controls\Others\Poptip.cs" />
     <Compile Include="Controls\Panel\AxleCanvas.cs" />
     <Compile Include="Controls\Element\BorderElement.cs" />
@@ -329,12 +350,15 @@
     <Compile Include="Controls\Slider\RangeSlider\RangeTrack.cs" />
     <Compile Include="Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
     <Compile Include="Controls\Input\WatermarkTextBox.cs" />
+    <Compile Include="Controls\Transitions\Transition.cs" />
     <Compile Include="Data\Args\FunctionEventArgs.cs" />
+    <Compile Include="Data\BooleanBoxes.cs" />
     <Compile Include="Data\Enum\DrawerShowMode.cs" />
     <Compile Include="Data\Enum\ExpandMode.cs" />
     <Compile Include="Data\Enum\FluidMoveScope.cs" />
     <Compile Include="Data\Enum\GrowlShowMode.cs" />
     <Compile Include="Data\Enum\HitMode.cs" />
+    <Compile Include="Data\Enum\IconType.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\PlacementType.cs" />
     <Compile Include="Data\Enum\SideMenuItemRole.cs" />
@@ -342,6 +366,7 @@
     <Compile Include="Data\Enum\TagType.cs" />
     <Compile Include="Data\Enum\TitlePlacementType.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
+    <Compile Include="Data\IconDatas.cs" />
     <Compile Include="Data\Range\DoubleRange.cs" />
     <Compile Include="Data\Range\IValueRange.cs" />
     <Compile Include="Data\ResourceToken.cs" />
@@ -353,6 +378,7 @@
     <Compile Include="Interactivity\Behavior.cs" />
     <Compile Include="Interactivity\Behavior1.cs" />
     <Compile Include="Interactivity\BehaviorCollection.cs" />
+    <Compile Include="Interactivity\Commands\CommandHelpers.cs" />
     <Compile Include="Interactivity\Commands\ControlCommands.cs" />
     <Compile Include="Interactivity\DefaultTriggerAttribute.cs" />
     <Compile Include="Interactivity\ExceptionStringTable.cs" />
@@ -390,6 +416,7 @@
     <Compile Include="Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="Tools\Converter\BorderCircularConverter.cs" />
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
+    <Compile Include="Tools\Converter\GetCanvasCentreConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\ThicknessSplitConverter.cs" />
@@ -413,11 +440,15 @@
     <Compile Include="Tools\Helper\AnimationHelper.cs" />
     <Compile Include="Tools\Helper\ArithmeticHelper.cs" />
     <Compile Include="Tools\Helper\ColorHelper.cs" />
+    <Compile Include="Tools\Helper\ControlHelper.cs" />
     <Compile Include="Tools\Helper\DesignerHelper.cs" />
     <Compile Include="Tools\Helper\DpiHelper.cs" />
     <Compile Include="Tools\Helper\FullScreenHelper.cs" />
+    <Compile Include="Tools\Helper\HeaderHelper.cs" />
     <Compile Include="Tools\Helper\MathHelper.cs" />
+    <Compile Include="Tools\Helper\MenuHelper.cs" />
     <Compile Include="Tools\Helper\ResourceHelper.cs" />
+    <Compile Include="Tools\Helper\ScrollViewerHelper.cs" />
     <Compile Include="Tools\Helper\SystemHelper.cs" />
     <Compile Include="Tools\Helper\TouchDragMoveWindowHelper.cs" />
     <Compile Include="Tools\Helper\VisualHelper.cs" />
@@ -471,7 +502,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\Icon\" />
     <Folder Include="Resources\Colors\" />
   </ItemGroup>
   <ItemGroup>

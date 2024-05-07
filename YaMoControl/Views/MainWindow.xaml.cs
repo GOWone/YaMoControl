@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Documents;
 using YaMoControl.Models;
 using YaMoControlDesign.Controls;
 
@@ -41,6 +37,12 @@ namespace YaMoControl.Views
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             SideMenuDemo sideMenuDemo = new SideMenuDemo();
+            sideMenuDemo.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            HamburgerMenuDemo sideMenuDemo = new HamburgerMenuDemo();
             sideMenuDemo.Show();
         }
     }

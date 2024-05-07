@@ -36,11 +36,12 @@
                 Margin="5"
                 Content="CheckBox"
                 Style="{StaticResource CheckBoxBaseStyle}" />
+            
             <PasswordBox
                 Width="200"
                 Height="30"
                 Margin="0,16,0,0"
-                ym:InfoElement.Placeholder="123"
+                ym:InfoElement.Placeholder="Input Password"
                 Style="{StaticResource PasswordBoxExtend}" />
             <TextBlock Style="{StaticResource TextBlockDefaultBold}" Text="123" />
             <Label
@@ -173,6 +174,7 @@
             </ListView>
 
             <Button Click="Button_Click_1" Content="SideMenu" />
+            <Button Click="Button_Click_2" Content="HamburgerMenu" />
 
 
         </StackPanel>
